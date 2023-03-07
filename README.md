@@ -11,6 +11,10 @@
 
 - Auxiliar na divisão dos gastos e lucros dos produtos, principalmente dos micro empresários e revendedores, dividindo por fontes, por exemplo: (natura, avon, mercantil, encomendas);
 
+### **Link para o vídeo de apresentação**
+
+- Acesso ao [video](https://drive.google.com/file/d/1jE2CcQRxjEbf6farJhRxpiZgXIZAd7Dz/view?usp=drivesdk)
+
 ### **Funcionalidades:**
 #### **Objetivo**
 - O Programa EasySales foi desenvolvido para auxiliar pequenos revendedores a gerenciarem suas vendas de forma eficiente. Com este sistema, é possível obter uma melhor organização dos gastos ao comprar novos produtos e controlar as transações comerciais com os clientes. O software é capaz de calcular o gasto mensal com as compras do vendedor e gerenciar o estoque, permitindo a visualização do saldo atual de cada item.
