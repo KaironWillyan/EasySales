@@ -17,13 +17,13 @@
 
 #### **Os requisitos funcionais do sistema são:**
 
-- CRUD Vendas: o sistema deve permitir o registro e consulta de todas as vendas realizadas pelos revendedores. As operações de criação, leitura, atualização e exclusão de informações sobre vendas devem ser disponibilizadas.
+- CRUD Vendas: o sistema deve permitir o registro e consulta de todas as vendas realizadas pelos vendedores. As operações de criação, leitura, atualização e exclusão de informações sobre vendas devem ser disponibilizadas.
 
-- CRUD Fornecedor: o sistema deve permitir o registro e consulta de cada fornecedor dos produtos comercializados pelos revendedores. As operações de criação, leitura, atualização e exclusão de informações sobre fornecedores devem ser disponibilizadas.
+- CRUD Fornecedor: o sistema deve permitir o registro e consulta de cada fornecedor dos produtos comercializados pelos vendedores. As operações de criação, leitura, atualização e exclusão de informações sobre fornecedores devem ser disponibilizadas.
 
-- CRUD Produto: o sistema deve permitir o registro e consulta do tipo de cada produto que será vendido pelos revendedores. As operações de criação, leitura, atualização e exclusão de informações sobre produtos devem ser disponibilizadas.
+- CRUD Produto: o sistema deve permitir o registro e consulta do tipo de cada produto que será vendido pelos vendedores. As operações de criação, leitura, atualização e exclusão de informações sobre produtos devem ser disponibilizadas.
 
-- CRUD Cliente: o sistema deve permitir o registro e consulta de cada cliente dos revendedores. As operações de criação, leitura, atualização e exclusão de informações sobre clientes devem ser disponibilizadas.
+- CRUD Cliente: o sistema deve permitir o registro e consulta de cada cliente dos vendedores. As operações de criação, leitura, atualização e exclusão de informações sobre clientes devem ser disponibilizadas.
 
 - Relatório dos produtos: o sistema deve gerar um relatório com o status dos produtos, informando se estão em falta, se há muita procura, entre outras informações relevantes para o gerenciamento do estoque.
 
