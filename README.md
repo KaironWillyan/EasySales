@@ -13,27 +13,27 @@
 
 ### **Funcionalidades:**
 #### **Objetivo**
-    - O Programa EasySales foi desenvolvido para auxiliar pequenos revendedores a gerenciarem suas vendas de forma eficiente. Com este sistema, é possível obter uma melhor organização dos gastos ao comprar novos produtos e controlar as transações comerciais com os clientes. O software é capaz de calcular o gasto mensal com as compras do vendedor e gerenciar o estoque, permitindo a visualização do saldo atual de cada item.
+- O Programa EasySales foi desenvolvido para auxiliar pequenos revendedores a gerenciarem suas vendas de forma eficiente. Com este sistema, é possível obter uma melhor organização dos gastos ao comprar novos produtos e controlar as transações comerciais com os clientes. O software é capaz de calcular o gasto mensal com as compras do vendedor e gerenciar o estoque, permitindo a visualização do saldo atual de cada item.
 
-    - Os requisitos funcionais do sistema são:
+#### **Os requisitos funcionais do sistema são:**
 
-    - CRUD Vendas: o sistema deve permitir o registro e consulta de todas as vendas realizadas pelos revendedores. As operações de criação, leitura, atualização e exclusão de informações sobre vendas devem ser disponibilizadas.
+- CRUD Vendas: o sistema deve permitir o registro e consulta de todas as vendas realizadas pelos revendedores. As operações de criação, leitura, atualização e exclusão de informações sobre vendas devem ser disponibilizadas.
 
-    - CRUD Fornecedor: o sistema deve permitir o registro e consulta de cada fornecedor dos produtos comercializados pelos revendedores. As operações de criação, leitura, atualização e exclusão de informações sobre fornecedores devem ser disponibilizadas.
+- CRUD Fornecedor: o sistema deve permitir o registro e consulta de cada fornecedor dos produtos comercializados pelos revendedores. As operações de criação, leitura, atualização e exclusão de informações sobre fornecedores devem ser disponibilizadas.
 
-    - CRUD Produto: o sistema deve permitir o registro e consulta do tipo de cada produto que será vendido pelos revendedores. As operações de criação, leitura, atualização e exclusão de informações sobre produtos devem ser disponibilizadas.
+- CRUD Produto: o sistema deve permitir o registro e consulta do tipo de cada produto que será vendido pelos revendedores. As operações de criação, leitura, atualização e exclusão de informações sobre produtos devem ser disponibilizadas.
 
-    - CRUD Cliente: o sistema deve permitir o registro e consulta de cada cliente dos revendedores. As operações de criação, leitura, atualização e exclusão de informações sobre clientes devem ser disponibilizadas.
+- CRUD Cliente: o sistema deve permitir o registro e consulta de cada cliente dos revendedores. As operações de criação, leitura, atualização e exclusão de informações sobre clientes devem ser disponibilizadas.
 
-    - Relatório dos produtos: o sistema deve gerar um relatório com o status dos produtos, informando se estão em falta, se há muita procura, entre outras informações relevantes para o gerenciamento do estoque.
+- Relatório dos produtos: o sistema deve gerar um relatório com o status dos produtos, informando se estão em falta, se há muita procura, entre outras informações relevantes para o gerenciamento do estoque.
 
-    - Relatório das vendas: o sistema deve gerar um relatório com o status das vendas, informando se estão pendentes ou finalizadas com sucesso. Essas informações são importantes para o acompanhamento do desempenho do negócio.
+- Relatório das vendas: o sistema deve gerar um relatório com o status das vendas, informando se estão pendentes ou finalizadas com sucesso. Essas informações são importantes para o acompanhamento do desempenho do negócio.
 
-    - Funcionalidade de Alerta: o sistema deve possuir uma funcionalidade de alerta que envia e-mails para os clientes informando sobre seu status, como lembretes de pagamento, promoções, entre outras informações relevantes.
+- Funcionalidade de Alerta: o sistema deve possuir uma funcionalidade de alerta que envia e-mails para os clientes informando sobre seu status, como lembretes de pagamento, promoções, entre outras informações relevantes.
 
-    - Finanças: o sistema deve permitir o controle das contas e do orçamento, facilitando a gestão financeira do negócio. As informações sobre gastos, receitas e lucros devem estar disponíveis de forma clara e objetiva.
-    
-    - Boleto Registrado: o sistema deve permitir o envio de boletos por e-mail ou impressos, e permitir o controle do recebimento por retorno bancário através das remessas bancárias. Isso facilita a gestão dos pagamentos e aumenta a eficiência da cobrança.
+- Finanças: o sistema deve permitir o controle das contas e do orçamento, facilitando a gestão financeira do negócio. As informações sobre gastos, receitas e lucros devem estar disponíveis de forma clara e objetiva.
+
+- Boleto Registrado: o sistema deve permitir o envio de boletos por e-mail ou impressos, e permitir o controle do recebimento por retorno bancário através das remessas bancárias. Isso facilita a gestão dos pagamentos e aumenta a eficiência da cobrança.
 
 # Tema secundário:
 ### **Nome provisório do software:**
