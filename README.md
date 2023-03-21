@@ -63,5 +63,4 @@
 
 Link para acessar o kanban do projeto [easySales](https://easysales.atlassian.net/jira/software/projects/EAS/boards/1)
 
-
-
+Link para acessar o [Backlog](https://drive.google.com/file/d/1aLGfeUBPlwT__gFFsKMCOCP-SkoJwOAr/view?usp=sharing) do projeto EasySales
