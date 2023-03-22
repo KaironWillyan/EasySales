@@ -13,7 +13,8 @@
 
 ### **Link para o vídeo de apresentação**
 
-- Acesso ao [video](https://drive.google.com/file/d/1jE2CcQRxjEbf6farJhRxpiZgXIZAd7Dz/view?usp=drivesdk)
+- Acesso ao [video](https://drive.google.com/file/d/1jE2CcQRxjEbf6farJhRxpiZgXIZAd7Dz/view?usp=drivesdk) (Aprensetação dos requisitos funcionais)
+- Acesso ao [video](https://drive.google.com/file/d/18riciWy7ymPHTP0FXxVv_eEqU2gpZUct/view?usp=sharing) (Aprensetação do Backlog)
 
 ### **Funcionalidades:**
 #### **Objetivo**
