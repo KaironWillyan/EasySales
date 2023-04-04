@@ -11,10 +11,14 @@
 
 - Auxiliar na divisão dos gastos e lucros dos produtos, principalmente dos micro empresários e revendedores, dividindo por fontes, por exemplo: (natura, avon, mercantil, encomendas);
 
-### **Link para o vídeo de apresentação**
+### **Link de apresentação**
 
 - Acesso ao [video](https://drive.google.com/file/d/1jE2CcQRxjEbf6farJhRxpiZgXIZAd7Dz/view?usp=drivesdk) (Aprensetação dos requisitos funcionais)
 - Acesso ao [video](https://drive.google.com/file/d/18riciWy7ymPHTP0FXxVv_eEqU2gpZUct/view?usp=sharing) (Aprensetação do Backlog)
+
+#### **wireframes**
+
+-Acesso ao link do [figma](https://www.figma.com/file/zIyv17Txs6Fmu2BptRmIg5/Untitled?node-id=0%3A1&t=uFioURj3NFIN6vU1-1) (Apresentação do protótipo)
 
 ### **Funcionalidades:**
 #### **Objetivo**
