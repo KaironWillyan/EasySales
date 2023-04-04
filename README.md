@@ -18,7 +18,7 @@
 
 #### **wireframes**
 
--Acesso ao link do [figma](https://www.figma.com/file/zIyv17Txs6Fmu2BptRmIg5/Untitled?node-id=0%3A1&t=uFioURj3NFIN6vU1-1) (Apresentação do protótipo)
+- Acesso ao link do [figma](https://www.figma.com/file/zIyv17Txs6Fmu2BptRmIg5/Untitled?node-id=0%3A1&t=uFioURj3NFIN6vU1-1) (Apresentação do protótipo)
 
 ### **Funcionalidades:**
 #### **Objetivo**
