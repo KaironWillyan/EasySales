@@ -1,6 +1,6 @@
 import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
 import { SellerService } from './seller.service';
-import { CreateSellerDto } from './dto/create-seller.dto';
+import { CreateSellerDto } from './dto/seller.dto';
 import { UpdateSellerDto } from './dto/update-seller.dto';
 
 @Controller('seller')
