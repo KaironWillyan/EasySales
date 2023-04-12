@@ -5,7 +5,103 @@ generator client {
   provider = "prisma-client-js"
 }
 
+generator erd-generator {
+  provider = "prisma-erd-generator"
+}
+
 datasource db {
-  provider = "sqlite"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
+}
+
+model Cliente {
+  id_cli          String @id  @unique @default(uuid())
+  nome_cli        String 
+  cpf             String  @unique
+  rua_cli         String
+  bairro_cli      String
+  num_cli         String
+  logradouro_cli  String
+  cep_cli         String
+  cidade_cli      String
+  compras         Venda[]
+}
+
+model Produto {
+  id_prod             String  @id @unique @default(uuid())
+  item_venda          ItemVenda[]
+  nome_prod           String
+  item_compra         ItemCompra[]
+
+  fornecedor          Fornecedor @relation(fields: [fornecedorId], references: [id_fornecedor])
+  fornecedorId        String
+}
+
+model ItemCompra{
+  compra                     Compra @relation(fields: [compraId], references: [id_compra])
+  compraId                   String   
+  produto                    Produto @relation(fields: [produtoId], references:[id_prod])
+  produtoId                  String
+  qtdComprada                Int
+  valor_unitario_compra      Float
+  dt_compra                  DateTime
+  @@id([compraId, produtoId])
+}
+
+model Compra{
+  id_compra               String  @id @unique @default(uuid())
+  data_compra             DateTime
+  valor_total_compra      Float
+  itemCompra              ItemCompra[]
+
+}
+
+model Fornecedor {
+  id_fornecedor             String  @id @unique @default(uuid())
+  produtos                  Produto[]
+  nome_fornecedor           String
+  rua_fornecedor            String
+  bairro_fornecedor         String
+  num_fornecedor            String
+  logradouro_fornecedor     String
+  cep_fornecedor            String
+  cidade_fornecedor         String
+}
+
+model ItemVenda{
+  // id_item_vemda      String @id @unique @default(uuid())
+  produto             Produto @relation(fields: [prodId], references: [id_prod]) 
+  prodId              String
+  
+  venda               Venda @relation(fields: [vendaId], references: [id_venda])
+  vendaId             String
+  
+  valor_prod          Float
+  
+  @@id([prodId, vendaId])
+}
+
+model Venda {
+  id_venda               String  @id @unique @default(uuid())
+  cli_venda              Cliente @relation(fields: [cli_venda_id], references: [id_cli]) 
+  
+  cli_venda_id           String  
+  itemVenda              ItemVenda[]
+  
+  vendedorId             String
+  vendedor               Vendedor @relation(fields: [vendedorId], references: [id_vendedor])
+  
+  valor_total_venda      Float
+  dt_pagamento           DateTime
+  quantidade_parcelas    Int
+}
+
+model Vendedor {
+  id_vendedor           String  @id @unique @default(uuid())
+  nome_vendedor         String
+
+  email                 String  @unique
+  senha                 String
+
+  vendas                Venda[]
 }
