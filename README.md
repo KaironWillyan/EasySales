@@ -43,8 +43,6 @@
 
 - Finanças: o sistema deve permitir o controle das contas e do orçamento, facilitando a gestão financeira do negócio. As informações sobre gastos, receitas e lucros devem estar disponíveis de forma clara e objetiva.
 
-- Boleto Registrado: o sistema deve permitir o envio de boletos por e-mail ou impressos, e permitir o controle do recebimento por retorno bancário através das remessas bancárias. Isso facilita a gestão dos pagamentos e aumenta a eficiência da cobrança.
-
 # Tema secundário:
 ### **Nome provisório do software:**
 
