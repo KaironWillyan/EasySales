@@ -1,0 +1,36 @@
+Cadastrar Cliente
+ADM:
+ 1- Cadastrar Cliente
+Fluxo principal:
+    + Pré-condições: O ADM deve estar autenticado no sistema e na tela de cadastro de clientes;
+      - O ADM insere os dados dos clientes nos campos de texto;
+      - O sistema verifica se aquele usuário existe;
+      - O sistema verifica se os dados foram informados com a sintaxe correta:
+        .cpf
+        .nome
+        .rua
+        .bairro
+        .num
+        .logradouro
+        .cep
+        .cidade
+      - O sistema valida os dados
+      - O ADM aperta no botão de cadastrar o cliente;
+      - O sistema salva os dados do cliente no Banco de Dados;
+      - O cliente passa a ficar visível no campo de clientes;
+
+Fluxo alternativo:
+    + O sistema verifica que o cliente já é cadastrado:
+      - O sistema exibe uma mensagem de erro e não permite que o cliente seja cadastrado novamente;
+    + ADM cancela o cadastro:
+      - O sistema cancela o cadastro do cliente no banco de dados e retorna a tela anterior;
+
+Fluxo alternativo: 
+    + O sistema verifica que os dados foram inseridos erroneamente:
+      - O sistema exibe uma mensagem de erro e não permite o cadastro do cliente;
+      - O ADM verifica os dados digitados e coloca da forma correta;
+      - O sitema verifica novamente se os dados foram inseridos corretamente;
+      - O sistema valida os dados;
+      - O ADM aperta no botão de cadastrar o cliente;
+      - O sistema salva os dados do cliente no Banco de Dados;
+      - O cliente passa a ficar visível no campo de clientes;
