@@ -5,8 +5,9 @@ generator client {
   provider = "prisma-client-js"
 }
 
-generator erd-generator {
+generator erd {
   provider = "prisma-erd-generator"
+  output = "../ERD.svg"
 }
 
 datasource db {
@@ -27,25 +28,18 @@ model Cliente {
   compras         Venda[]
 }
 
-model Produto {
-  id_prod             String  @id @unique @default(uuid())
-  item_venda          ItemVenda[]
-  nome_prod           String
-  item_compra         ItemCompra[]
-
-  fornecedor          Fornecedor @relation(fields: [fornecedorId], references: [id_fornecedor])
-  fornecedorId        String
-}
 
 model ItemCompra{
   compra                     Compra @relation(fields: [compraId], references: [id_compra])
   compraId                   String   
-  produto                    Produto @relation(fields: [produtoId], references:[id_prod])
-  produtoId                  String
+
+  estoque                    Estoque @relation(fields: [estoqueId], references:[id_estoque])
+  estoqueId                  String
+
   qtdComprada                Int
   valor_unitario_compra      Float
   dt_compra                  DateTime
-  @@id([compraId, produtoId])
+  @@id([compraId, estoqueId])
 }
 
 model Compra{
@@ -53,12 +47,12 @@ model Compra{
   data_compra             DateTime
   valor_total_compra      Float
   itemCompra              ItemCompra[]
-
+  fornecedor              Fornecedor @relation(fields: [fornecedorId], references: [id_fornecedor])
+  fornecedorId            String
 }
 
 model Fornecedor {
   id_fornecedor             String  @id @unique @default(uuid())
-  produtos                  Produto[]
   nome_fornecedor           String
   rua_fornecedor            String
   bairro_fornecedor         String
@@ -66,19 +60,21 @@ model Fornecedor {
   logradouro_fornecedor     String
   cep_fornecedor            String
   cidade_fornecedor         String
+
+  compra                    Compra[]
 }
 
 model ItemVenda{
   // id_item_vemda      String @id @unique @default(uuid())
-  produto             Produto @relation(fields: [prodId], references: [id_prod]) 
-  prodId              String
+  estoque             Estoque @relation(fields: [estoqueId], references: [id_estoque]) 
+  estoqueId              String
   
   venda               Venda @relation(fields: [vendaId], references: [id_venda])
   vendaId             String
   
   valor_prod          Float
   
-  @@id([prodId, vendaId])
+  @@id([estoqueId, vendaId])
 }
 
 model Venda {
@@ -88,20 +84,33 @@ model Venda {
   cli_venda_id           String  
   itemVenda              ItemVenda[]
   
-  vendedorId             String
-  vendedor               Vendedor @relation(fields: [vendedorId], references: [id_vendedor])
-  
   valor_total_venda      Float
   dt_pagamento           DateTime
   quantidade_parcelas    Int
 }
 
-model Vendedor {
-  id_vendedor           String  @id @unique @default(uuid())
-  nome_vendedor         String
+model Empresa {
+  id_empresa           String  @id @unique @default(uuid())
+  nome_empresa         String
 
   email                 String  @unique
   senha                 String
 
-  vendas                Venda[]
+  estoque               Estoque[]
+}
+
+
+model Estoque {
+  id_estoque            String @id @unique @default(uuid())
+
+  item_venda          ItemVenda[]
+  item_compra         ItemCompra[]
+  empresas             Empresa[]
+  produtos            Produto[]
+}
+model Produto {
+  id_prod             String  @id @unique @default(uuid())
+  nome_prod           String
+  
+  estoque               Estoque[]
 }
