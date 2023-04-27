@@ -7,10 +7,11 @@ import { FornecedorModule } from './fornecedor/fornecedor.module';
 import { ItemVendaModule } from './item-venda/item-venda.module';
 import { VendaModule } from './venda/venda.module';
 import { VendedorModule } from './vendedor/vendedor.module';
+import { PrismaService } from 'src/infra/database/prisma/prisma.service';
 
 @Module({
-  imports: [ClientModule, ProductModule, SalesModule, StoreModule, SellerModule, ClienteModule, ProdutoModule, ItemCompraModule, CompraModule, FornecedorModule, ItemVendaModule, VendaModule, VendedorModule],
-  controllers: [],
+  imports: [ClienteModule, ProdutoModule, ItemCompraModule, CompraModule, FornecedorModule, ItemVendaModule, VendaModule, VendedorModule],
+  controllers: [PrismaService],
   providers: [],
 })
 export class AppModule {}
