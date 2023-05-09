@@ -30,6 +30,7 @@ model Cliente {
 
 
 model ItemCompra{
+  item_compra_id             String @id @unique @default(uuid())
   compra                     Compra @relation(fields: [compraId], references: [id_compra])
   compraId                   String   
 
@@ -39,7 +40,7 @@ model ItemCompra{
   qtdComprada                Int
   valor_unitario_compra      Float
   dt_compra                  DateTime
-  @@id([compraId, estoqueId])
+  // @@id([compraId, estoqueId])
 }
 
 model Compra{
@@ -65,16 +66,16 @@ model Fornecedor {
 }
 
 model ItemVenda{
-  // id_item_vemda      String @id @unique @default(uuid())
+  id_item_venda      String @id @unique @default(uuid())
   estoque             Estoque @relation(fields: [estoqueId], references: [id_estoque]) 
   estoqueId              String
   
   venda               Venda @relation(fields: [vendaId], references: [id_venda])
   vendaId             String
   
-  valor_prod          Float
+  valor_venda          Float
   
-  @@id([estoqueId, vendaId])
+  // @@id([estoqueId, vendaId])
 }
 
 model Venda {
@@ -105,8 +106,10 @@ model Estoque {
 
   item_venda          ItemVenda[]
   item_compra         ItemCompra[]
-  empresas             Empresa[]
+  empresas            Empresa[]
   produtos            Produto[]
+  valor_venda         Float
+
 }
 model Produto {
   id_prod             String  @id @unique @default(uuid())
