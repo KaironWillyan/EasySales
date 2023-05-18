@@ -1,0 +1,38 @@
+.constrain{
+    display: flex;
+    flex-direction:column;
+    flex-wrap: wrap;
+    justify-content:center ;
+    align-items: center;
+}
+
+
+.input > input{
+    
+    width: 650px;
+    height: 30px;
+    margin: 10px;
+    text-align:left;
+    background-color: rgba(245, 233, 23, 0.4); 
+    border-radius: 20px;
+}
+/* -------------------     00      --------------------------- */
+.constrain > a > button{
+    
+    background-color:#1DB4F2;
+    padding: 10px;
+    border-radius: 40px;
+    color: antiquewhite;
+    font-size: 15px;
+  }
+    
+.constrain > a > button:hover{
+    background-color: #033c55;
+  }
+
+.cabeçalho{
+    background-color: #1DB4F2;
+    padding: 5px;
+    color: antiquewhite;
+    margin-bottom: 80px;
+}
