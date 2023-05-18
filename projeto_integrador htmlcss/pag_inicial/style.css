@@ -1,0 +1,86 @@
+.break {
+  flex-basis: 100%;
+  height: 80px; ;
+  background-color: transparent;
+}
+
+
+
+.Barra_nav{
+    display: flex;
+    background-color: #1DB4F2;
+    height:40px ;
+    
+}
+    
+.constrain{
+    display: flex;
+    flex-direction: row;
+    flex-wrap:wrap;
+    justify-content:space-around   ;
+    text-align: center;
+    padding: 10%;
+
+}
+
+.marca {
+    background-color:#F23558 ;
+    border-radius: 40px;
+    font-size: 18px;
+    padding: 50px;
+}
+
+.marca a {
+    text-decoration: none;
+    color: antiquewhite;
+    flex-grow: 1;
+}
+
+.marca:hover{
+    color: antiquewhite;
+    background-color: rgb(176, 30, 54);
+}
+
+.constrain > a > button{
+  background-color:#1DB4F2;
+  padding: 20px;
+  border-radius: 40px;
+  color: antiquewhite;
+  font-size: 25px;
+}
+.linkbt{
+  margin-left: 90%;
+}
+
+.constrain > a > button:hover{
+  background-color: #033c55;
+}
+
+.Barra_nav > ul {
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    list-style-type: none;
+    margin:5px;
+    padding: 1px;
+    overflow: hidden;
+    background-color: #1DB4F2;
+    width: 100%;
+
+  }
+  
+  .Barra_nav > ul > li {
+    float: left;
+  }
+  
+  .Barra_nav > ul > li a {
+      color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+.Barra_nav > ul > li a:hover {
+    background-color:#1C7EA6
+
+  }
+  
