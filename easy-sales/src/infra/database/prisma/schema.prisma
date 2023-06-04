@@ -105,12 +105,14 @@ model Estoque {
 
   item_venda          ItemVenda[]
   item_compra         ItemCompra[]
-  empresas             Empresa[]
+  empresas            Empresa[]
   produtos            Produto[]
 }
+
 model Produto {
-  id_prod             String  @id @unique @default(uuid())
-  nome_prod           String
-  
-  estoque               Estoque[]
+  id_prod    String   @id @unique @default(uuid())
+  nome_prod  String
+  estoque    Estoque? @relation(fields: [estoqueId], references: [id_estoque])
+  estoqueId  String?
 }
+
