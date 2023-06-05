@@ -1,0 +1,179 @@
+
+  
+  
+
+/* *{
+      display: flex;
+      flex-direction: row;
+      flex-wrap:wrap;
+      justify-content:space-around   ;
+      text-align: center;
+      padding: 10%;
+  
+  } 
+  
+  /* .marca {
+      background-color:#F23558 ;
+      border-radius: 40px;
+      font-size: 18px;
+      padding: 50px;
+  }
+  
+  .marca a {
+      text-decoration: none;
+      color: antiquewhite;
+      flex-grow: 1;
+  }
+  */
+ /*  .bt_marca:hover{
+      color: antiquewhite;
+      background-color: rgb(176, 30, 54);
+      
+      
+  }
+
+   .bt_marca{
+    background-color:#F23558 ;
+    border-radius: 40px;
+    font-size: 18px;
+    padding: 50px; 
+    color: white;
+
+
+    width: 20%;
+    max-width: 80%;
+    margin: 10px;
+    padding: 10px;
+    text-align: center;
+   }
+    .marcas {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+            
+    @media screen and (max-width: 768px) {
+        .bt_marca {
+          width: 40%;
+        }
+      }
+      
+      @media screen and (max-width: 480px) {
+        .bt_marca {
+          width: 80%;
+        }
+      }
+      
+   */
+/* tamanho do bt varia */
+ 
+   .marcas {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+  }
+  
+  .bt_marca {
+    flex-basis: calc(20% - 20px);
+    margin: 20px;
+    margin-top: auto;
+    text-align: center;
+    background-color:#F23558 ;
+    border-radius: 40px;
+    font-size: 18px;
+    padding: 50px; 
+    color: white;
+    height: 20px;
+   
+  }
+
+  .bt_marca:hover{
+    color: antiquewhite;
+    background-color: rgb(176, 30, 54);
+    
+  
+  }
+
+  .addMarca{
+     flex-basis: calc(20% - 20px);
+    color: white; 
+    text-align:center;
+    font-size: 25px;
+    border-radius: 80px;
+    background-color:#1DB4F2 ;
+    padding: 30px; 
+    height: 20px;
+    position: fixed;
+    bottom: 4%;
+    right:2%;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .bt_marca {
+      flex-basis: calc(40% - 20px);
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    .bt_marca {
+      flex-basis: calc(80% - 20px);
+    }
+  }
+   
+
+/* Tamanho do bt fixo */
+
+ /*   .marcas {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+  }
+  
+  .bt_marca {
+    flex-basis: calc(20% - 20px);
+    margin: 20px;
+    margin-top: auto;
+    text-align: center;
+    background-color: #F23558;
+    border-radius: 40px;
+    font-size: 18px;
+    color: white;
+    height: 50px;
+    width: 350px;
+  }
+  
+  .bt_marca:hover {
+    color: antiquewhite;
+    background-color: rgb(176, 30, 54);
+  }
+  
+  .addMarca {
+    flex-basis: calc(20% - 20px);
+    color: white;
+    text-align: center;
+    font-size: 25px;
+    border-radius: 80px;
+    background-color: #1DB4F2;
+    padding: 30px;
+    height: 20px;
+    position: fixed;
+    bottom: 4%;
+    right: 2%;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .bt_marca {
+      flex-basis: calc(40% - 20px);
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    .bt_marca {
+      flex-basis: calc(80% - 20px);
+    }
+  } */
+  
