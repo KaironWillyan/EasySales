@@ -115,26 +115,47 @@
   }
   
   .subtitle {
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+    margin-right: 5px;
+    color: darkgray;
+    text-align: center;
+    font-size: 20px;
   }
   
   .input-container {
-    display: flex;
+    /* display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 10px;
+    margin-bottom: 10px; */
+
+    display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-end;
+  margin-bottom: 10px;
   }
   
   .search-input {
-    width: 300px;
-    height: 30px;
+    margin-top: 15px;
+    width: 500px;
+    height: 40px;
     margin-bottom: 10px;
-    border-radius: 20px;
+    border-radius: 10px;
+    margin-right: 10px;
+    background-color: lightgrey;
+    border: white
+    
   }
   
   .search-button {
-    padding: 5px 10px;
-  margin-bottom: 20px;
+    padding: 8px 20px;
+    margin-bottom: 20px;
+    border-radius: 20px;
+    margin-right: 10px;
+    background-color: #1DB4F2;
+    color:white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    border: none;
   }
   
   .result-list {
@@ -144,4 +165,19 @@
   
   .result-list li {
     margin-bottom: 5px;
+  }
+
+  .resultados{
+    list-style: none;
+    padding: 0;
+    background-color: #f2f2f2;
+    border-radius: 10px;
+    width: 80%;
+    margin: 0 auto;
+    height: 500px;
+  }
+
+  .sem-result{
+    text-align: center;
+    margin-top: 150px;
   }

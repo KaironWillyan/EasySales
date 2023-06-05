@@ -35,8 +35,10 @@
     width:  95%;
     background-color: rgba(245, 233, 23, 0.4);
     border-color:  rgba(245, 233, 23, 0.8);
+    
   }
-  
+
+    
   .button-container {
     display: flex;
     justify-content:right;
@@ -60,6 +62,6 @@
    
 h2{
     text-align: center;
-    color: white;
+    color: rgb(13, 13, 13);
 }
 

@@ -40,7 +40,7 @@ const CadastroProduto = () => {
       <div className="cadastro">
         <h2>Cadastro de Produtos</h2>
         <div className="form-group">
-          <label>Nome do Produto:</label>
+          {/* <label>Nome do Produto:</label> */}
           <input
             type="text"
             name="nomeProduto"
@@ -50,7 +50,7 @@ const CadastroProduto = () => {
           />
         </div>
         <div className="form-group">
-          <label>Quantidade Adquirida:</label>
+         {/*  <label>Quantidade Adquirida:</label> */}
           <input
             type="text"
             name="quantidadeAdquirida"
@@ -60,7 +60,7 @@ const CadastroProduto = () => {
           />
         </div>
         <div className="form-group">
-          <label>ID:</label>
+         {/*  <label>ID:</label> */}
           <input
             type="text"
             name="id"

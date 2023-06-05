@@ -118,7 +118,7 @@ const CadastroFornecedor = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    // Aqui você pode fazer o envio dos dados para a API ou realizar outras ações necessárias
+    // Aqui fazer o envio dos dados para a API ou realizar outras ações necessárias
 
     // Após o envio dos dados, você pode limpar os campos do formulário
     setNome('');
@@ -136,43 +136,47 @@ const CadastroFornecedor = () => {
         <h2>Cadastro de Fornecedor</h2>
         <form onSubmit={handleSubmit}>
           <div className="form-group">
-            <label htmlFor="nome">Nome:</label>
+            {/* <label htmlFor="nome">Nome:</label> */}
             <input
               type="text"
               id="nome"
               value={nome}
               onChange={handleNomeChange}
               required
+              placeholder='Nome fornecedor:'
             />
           </div>
           <div className="form-group">
-            <label htmlFor="email">Email:</label>
+            {/* <label htmlFor="email">Email:</label> */}
             <input
               type="email"
               id="email"
               value={email}
               onChange={handleEmailChange}
               required
+              placeholder='Email:'
             />
           </div>
           <div className="form-group">
-            <label htmlFor="endereco">Endereço:</label>
+           {/*  <label htmlFor="endereco">Endereço:</label> */}
             <input
               type="text"
               id="endereco"
               value={endereco}
               onChange={handleEnderecoChange}
               required
+              placeholder='Endereço:'
             />
           </div>
           <div className="form-group">
-            <label htmlFor="telefone">Telefone:</label>
+            {/* <label htmlFor="telefone">Telefone:</label> */}
             <input
               type="text"
               id="telefone"
               value={telefone}
               onChange={handleTelefoneChange}
               required
+              placeholder='Telefone:'
             />
           </div>
           <div className="button-container">

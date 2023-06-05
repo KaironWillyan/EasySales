@@ -18,8 +18,7 @@
     color: white;
     height: 10%;
     width: 40%;
-
-}
+   }
 
 
 .ProdValores:hover {
@@ -42,7 +41,18 @@
     position: fixed;
     bottom: 4%;
     right: 2%;
+    /* ------------- */
+    display: flex;
+    justify-content:right;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.8);
+    border: none;
 }
+
+.addProd:hover{
+    background-color: #1ba3d9;
+
+  }
 
 @media screen and (max-width: 768px) {
     .bt_marca {
