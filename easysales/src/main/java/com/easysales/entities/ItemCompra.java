@@ -18,6 +18,8 @@ public class ItemCompra {
     @JoinColumn(name = "compraId")
     private Compra compra;
 
+    private String estoqueId;
+
     @Column(nullable = false)
     private Integer qtdComprada;
 
