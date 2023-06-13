@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.List;
+import java.lang.Integer;
 
 @Entity
 @NoArgsConstructor
@@ -11,8 +12,8 @@ import java.util.List;
 public class Fornecedor {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private String idFornecedor;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer idFornecedor;
 
     @Column(nullable = false)
     private String nomeFornecedor;
@@ -35,6 +36,6 @@ public class Fornecedor {
     @Column(nullable = false)
     private String cidadeFornecedor;
 
-    @OneToMany(mappedBy = "compras")
+    @OneToMany(mappedBy = "fornecedor")
     private List<Compra> compras;
 }

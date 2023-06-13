@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.List;
+import java.lang.Integer;
 
 @Entity
 @NoArgsConstructor
@@ -11,14 +12,14 @@ import java.util.List;
 public class Cliente {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private String idCli;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer idCli;
 
     @Column(nullable = false)
     private String nomeCli;
 
     @Column(nullable = false, unique = true)
-    private String cefCli;
+    private String cpfCli;
 
     @Column(nullable = false)
     private String ruaCli;
@@ -38,6 +39,6 @@ public class Cliente {
     @Column(nullable = false)
     private String cidadeCli;
 
-    @OneToMany(mappedBy = "vendas", targetEntity = Venda.class)
+    @OneToMany(mappedBy = "cliente")
     private List<Venda> vendas;
 }

@@ -5,20 +5,23 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.sql.Timestamp;
+import java.lang.Integer;
 
 @Entity
 @NoArgsConstructor
 @Data
 public class ItemCompra {
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private String itemCompraId;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer itemCompraId;
 
-    @ManyToOne()
-    @JoinColumn(name = "compraId")
+    @ManyToOne
+    @JoinColumn(name = "compra_id")
     private Compra compra;
 
-    private String estoqueId;
+    @ManyToOne
+    @JoinColumn(name = "estoque_id", nullable = false)
+    private Estoque estoque;
 
     @Column(nullable = false)
     private Integer qtdComprada;

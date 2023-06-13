@@ -4,28 +4,28 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.List;
+import java.lang.Integer;
 
 @Entity
 @NoArgsConstructor
 @Data
 public class Estoque {
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private String idEstoque;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer idEstoque;
 
-    @ManyToMany
-    private List<ItemVenda> item_venda;
+    @OneToMany(mappedBy = "estoque")
+    private List<ItemVenda> itemVenda;
+
+    @OneToMany(mappedBy = "estoque")
+    private List<ItemCompra> itemCompra;
 
     @ManyToOne
-    @JoinColumn(name = "itemCompraId", nullable = false)
-    private ItemCompra itemCompra;
-
-    @ManyToOne
-    @JoinColumn(name = "empresaId", nullable = false)
+    @JoinColumn(name = "estoque_id", nullable = false)
     private Empresa empresa;
 
     @ManyToOne
-    @JoinColumn(name = "produtoId", nullable = false)
+    @JoinColumn(name = "produto_id", nullable = false)
     private Produto produto;
 
     @Column(nullable = false)
