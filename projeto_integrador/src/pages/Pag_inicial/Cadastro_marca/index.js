@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
+
 import './cadastro.css'
 import {Link} from 'react-router-dom'
-
-const CadastroMarcas = () => {
+/*const CadastroMarcas = () => {
   const [marcas, setMarcas] = useState([]);
   const [nomeMarca, setNomeMarca] = useState('');
   const [fornecedorMarca, setFornecedorMarca] = useState('');
@@ -59,7 +58,7 @@ const CadastroMarcas = () => {
         />
       </div>
       <div className='button-container'>
-        {/* Lembrar de fazer a animação "cadastro realizado com sucesso" */}
+        {/* Lembrar de fazer a animação "cadastro realizado com sucesso" 
         <Link to ={`/`}>
       <button onClick={handleCadastroMarca}>Cadastrar</button>
       </Link>
@@ -83,4 +82,147 @@ const CadastroMarcas = () => {
   );
 };
 
-export default CadastroMarcas;
+export default CadastroMarcas;*/
+
+
+import React, { useState } from 'react';
+import axios from 'axios';
+
+
+const CadastroFornecedor = () => {
+  const [fornecedor, setFornecedor] = useState({
+    nome: '',
+    endereco: {
+      bairro: '',
+      numero: '',
+      logradouro: '',
+      cep: '',
+      cidade: ''
+    },
+    telefone: '',
+    cpf: '',
+    email: ''
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFornecedor((prevState) => ({
+      ...prevState,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    axios.post('URL_DA_SUA_API', fornecedor)
+      .then((response) => {
+        console.log('Fornecedor cadastrado com sucesso!', response.data);
+        // Limpar os campos após o cadastro (opcional)
+        setFornecedor({
+          nome: '',
+          endereco: {
+            bairro: '',
+            numero: '',
+            logradouro: '',
+            cep: '',
+            cidade: ''
+          },
+          telefone: '',
+          cpf: '',
+          email: ''
+        });
+      })
+      .catch((error) => {
+        console.error('Erro ao cadastrar fornecedor:', error);
+      });
+  };
+
+  return (
+    <div className="container">
+      <div className="cadastro">
+        <h2>Cadastro de Fornecedor</h2>
+        <form onSubmit={handleSubmit}>
+          <div className="form-group">
+            <label>Nome:</label>
+            <input
+              type="text"
+              name="nome"
+              value={fornecedor.nome}
+              onChange={handleChange}
+            />
+          </div>
+          <div className="form-group">
+            <label>Endereço:</label>
+            <input
+              type="text"
+              name="endereco.bairro"
+              value={fornecedor.endereco.bairro}
+              onChange={handleChange}
+              placeholder="Bairro"
+            />
+            <input
+              type="text"
+              name="endereco.numero"
+              value={fornecedor.endereco.numero}
+              onChange={handleChange}
+              placeholder="Número"
+            />
+            <input
+              type="text"
+              name="endereco.logradouro"
+              value={fornecedor.endereco.logradouro}
+              onChange={handleChange}
+              placeholder="Logradouro"
+            />
+            <input
+              type="text"
+              name="endereco.cep"
+              value={fornecedor.endereco.cep}
+              onChange={handleChange}
+              placeholder="CEP"
+            />
+            <input
+              type="text"
+              name="endereco.cidade"
+              value={fornecedor.endereco.cidade}
+              onChange={handleChange}
+              placeholder="Cidade"
+            />
+          </div>
+          <div className="form-group">
+            <label>Telefone:</label>
+            <input
+              type="text"
+              name="telefone"
+              value={fornecedor.telefone}
+              onChange={handleChange}
+            />
+          </div>
+          <div className="form-group">
+            <label>CPF:</label>
+            <input
+              type="text"
+              name="cpf"
+              value={fornecedor.cpf}
+              onChange={handleChange}
+            />
+          </div>
+          <div className="form-group">
+            <label>Email:</label>
+            <input
+              type="email"
+              name="email"
+              value={fornecedor.email}
+              onChange={handleChange}
+            />
+          </div>
+          <div className="button-container">
+            <button type="submit">Cadastrar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  );
+};
+
+export default CadastroFornecedor;

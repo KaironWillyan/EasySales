@@ -1,0 +1,40 @@
+
+
+  .info-cli {
+    display: flex;
+    flex-direction:row;
+    justify-content: auto;
+    background-color: rgba(235, 235, 235, 0.8)  ;
+    padding: 10px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    width: 80%;
+  }
+
+  .info-cli p {
+    margin: 20px  ;
+  }
+
+  .info-cli button {
+    margin-top: 10px;
+    display: flex;
+    flex-direction:column;
+    margin-left: center;
+    border-radius: 30px; 
+    background-color:#1DB4F2 ;
+    color: white;
+}
+
+  .clientes{
+   padding-left: 20%;
+  }
+
+  h1{
+    text-align: center;
+    margin-bottom: 25px;
+    margin-top: 15px;
+  }
+  .bt_cli button{
+    padding: 5px;
+    margin: 0px;
+  }
