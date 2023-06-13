@@ -4,14 +4,15 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.List;
+import java.lang.Integer;
 
 @Entity
 @NoArgsConstructor
 @Data
 public class Empresa    {
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private String idEmpresa;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer idEmpresa;
 
     @Column(nullable = false)
     private String nomeEmpresa;
@@ -22,6 +23,6 @@ public class Empresa    {
     @Column(nullable = false)
     private String senha;
 
-    @OneToMany(mappedBy = "estoque", targetEntity = Estoque.class)
+    @OneToMany(mappedBy = "empresa")
     private List<Estoque> estoques;
 }
