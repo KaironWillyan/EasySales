@@ -266,15 +266,12 @@ const PesquisaFornecedores = () => {
     <ul className="result-list">
       {resultado.map((fornecedor) => (
         <li key={fornecedor.id}>
-          <strong>Nome:</strong> {fornecedor.nome} | <strong>Endereço:</strong> {fornecedor.endereco} | <strong>Telefone:</strong> {fornecedor.telefone}
+          <strong>Nome:</strong> {fornecedor.nome} | <strong>Email:</strong> {fornecedor.endereco} | <strong>Telefone:</strong> {fornecedor.telefone} | <strong>Cidade:</strong>{fornecedor.cidade} 
         </li>
       ))}
     </ul>
   )}
   </div>
-  <Link  to="/cadastroFornecedor">
-                <button className="addProd">+</button>
-            </Link>
 </div>
 
   );

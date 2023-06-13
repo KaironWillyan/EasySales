@@ -137,21 +137,22 @@
   
   .search-input {
     margin-top: 15px;
-    width: 500px;
+    width: 550px;
     height: 40px;
     margin-bottom: 10px;
-    border-radius: 10px;
+    border-radius: 20px;
     margin-right: 10px;
     background-color: lightgrey;
-    border: white
+    border: white;
+    text-align: center;
     
   }
   
   .search-button {
-    padding: 8px 20px;
+    padding: 18px 25px;
     margin-bottom: 20px;
     border-radius: 20px;
-    margin-right: 10px;
+    margin-right: 20px;
     background-color: #1DB4F2;
     color:white;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);

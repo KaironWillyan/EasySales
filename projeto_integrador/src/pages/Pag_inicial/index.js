@@ -6,11 +6,11 @@ const Minha_marca = () => {
     const [marca, setObjetos] = useState([]);
     useEffect(() => {
         setObjetos([
-          { id: 1, nome: 'Marca 1' },
-          { id: 2, nome: 'Marca 2' },
-          { id: 3, nome: 'Marca 3' },
-          { id: 3, nome: 'Marca 4' },
-          { id: 3, nome: 'sorria' },
+          { id: 1, nome: 'FORNECEDOR 1' },
+          { id: 2, nome: 'FORNECEDOR 2' },
+          { id: 3, nome: 'FORNECEDOR 3' },
+          { id: 3, nome: 'FORNECEDOR 4' },
+          { id: 3, nome: 'FORNECEDOR 5' },
         ]);
       }, []);
 
