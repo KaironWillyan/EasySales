@@ -6,6 +6,7 @@ import java.lang.Integer;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -25,6 +26,7 @@ public class Venda {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer idVenda;
 
+    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     @OneToMany(mappedBy = "venda")
     private List<ItemVenda> itemVenda;
 

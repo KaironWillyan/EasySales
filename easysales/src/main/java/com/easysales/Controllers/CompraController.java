@@ -2,8 +2,7 @@ package com.easysales.Controllers;
 
 
 import com.easysales.Repositories.CompraRepository;
-import com.easysales.Repositories.EmpresaRepository;
-import com.easysales.entities.Empresa;
+import com.easysales.entities.Compra;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,59 +19,60 @@ public class CompraController {
     @Autowired
     private CompraRepository compraRepository;
 
-    @GetMapping("/empresa")
-    public List<Empresa> getEmpresa(){
-        return empresaRepository.findAll();
+    @GetMapping("/compra")
+    public List<Compra> getCompra(){
+        return compraRepository.findAll();
     }
 
-    @GetMapping("/empresa/{id}")
-    public ResponseEntity<Empresa> GetEmpresaById(@PathVariable(value = "idEmpresa") Integer id){
-        Optional<Empresa> empresa = empresaRepository.findById(id);
-        if(empresa.isPresent()){
-            return new ResponseEntity<Empresa>(empresa.get(), HttpStatus.OK);
+    @GetMapping("/compra/{id}")
+    public ResponseEntity<Compra> GetCompraById(@PathVariable(value = "idCompra") Integer id){
+        Optional<Compra> compra = compraRepository.findById(id);
+        if(compra.isPresent()){
+            return new ResponseEntity<Compra>(compra.get(), HttpStatus.OK);
         }
         throw new ResponseStatusException(
-                HttpStatus.NOT_FOUND, "Empresa não encontrado."
+                HttpStatus.NOT_FOUND, "Compra não encontrado."
         );
     }
 
-    @PostMapping("/empresa")
-    public Empresa PostEmpresa(@Validated @RequestBody Empresa empresa){
-        return empresaRepository.saveAndFlush(empresa);
+    @PostMapping("/compra")
+    public Compra PostCompra(@Validated @RequestBody Compra compra){
+        return compraRepository.saveAndFlush(compra);
     }
 
-    @PutMapping("/empresa/{id}")
-    public ResponseEntity<Empresa> PutEmpresa(@PathVariable(value = "idEmpresa") Integer id, @Validated @RequestBody Empresa newEmpresa)
+    @PutMapping("/compra/{id}")
+    public ResponseEntity<Compra> PutCompra(@PathVariable(value = "idCompra") Integer id, @Validated @RequestBody Compra newCompra)
     {
-        Optional<Empresa> oldEmpresa = empresaRepository.findById(id);
-        if(oldEmpresa.isPresent()){
-            Empresa empresa = oldEmpresa.get();
-            empresa.setNomeEmpresa(newEmpresa.getNomeEmpresa());
-            empresa.setEmail(newEmpresa.getEmail());
-            empresa.setSenha(newEmpresa.getSenha());
-            empresaRepository.save(empresa);
-            return new ResponseEntity<Empresa>(empresa, HttpStatus.OK);
+        Optional<Compra> oldCompra = compraRepository.findById(id);
+        if(oldCompra.isPresent()){
+            Compra compra = oldCompra.get();
+            compra.setItemCompra(newCompra.getItemCompra());
+            compra.setFornecedor(newCompra.getFornecedor());
+            compra.setDataCompra(newCompra.getDataCompra());
+            compra.setValorTotalCompra(newCompra.getValorTotalCompra());
+            compraRepository.save(compra);
+            return new ResponseEntity<Compra>(compra, HttpStatus.OK);
         }
         throw new ResponseStatusException(
-                HttpStatus.NOT_FOUND, "empresa não encontrado."
+                HttpStatus.NOT_FOUND, "compra não encontrado."
         );
     }
 
-    @DeleteMapping("/empresa/{id}")
-    public ResponseEntity<Empresa> DeleteEmpresa(@PathVariable(value = "idEmpresa") Integer id){
-        Optional<Empresa> empresa = empresaRepository.findById((id));
-        if (empresa.isPresent()){
-            empresaRepository.delete(empresa.get());
+    @DeleteMapping("/compra/{id}")
+    public ResponseEntity<Compra> DeleteCompra(@PathVariable(value = "idCompra") Integer id){
+        Optional<Compra> compra = compraRepository.findById((id));
+        if (compra.isPresent()){
+            compraRepository.delete(compra.get());
             return new ResponseEntity<>(HttpStatus.OK);
         }
         throw new ResponseStatusException(
-                HttpStatus.NOT_FOUND, "empresa não encontrado."
+                HttpStatus.NOT_FOUND, "compra não encontrado."
         );
     }
 
-    @DeleteMapping("/empresa")
-    public ResponseEntity<Empresa> DeleteAllEmpresa(){
-        empresaRepository.deleteAll();
+    @DeleteMapping("/compra")
+    public ResponseEntity<Compra> DeleteAllCompra(){
+        compraRepository.deleteAll();
         return new ResponseEntity<>(HttpStatus.OK);
     }
 }

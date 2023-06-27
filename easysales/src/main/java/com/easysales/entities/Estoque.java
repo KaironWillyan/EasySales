@@ -1,5 +1,6 @@
 package com.easysales.entities;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -14,9 +15,11 @@ public class Estoque {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer idEstoque;
 
+    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     @OneToMany(mappedBy = "estoque")
     private List<ItemVenda> itemVenda;
 
+    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     @OneToMany(mappedBy = "estoque")
     private List<ItemCompra> itemCompra;
 

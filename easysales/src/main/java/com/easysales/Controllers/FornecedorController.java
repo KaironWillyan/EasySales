@@ -65,6 +65,7 @@ public class FornecedorController{
         if(oldFornecedor.isPresent()){
             Fornecedor fornecedor = oldFornecedor.get();
             fornecedor.setNomeFornecedor(newFornecedor.getNomeFornecedor());
+            fornecedor.setCpfFornecedor(newFornecedor.getCpfFornecedor());
             fornecedor.setRuaFornecedor(newFornecedor.getRuaFornecedor());
             fornecedor.setBairroFornecedor(newFornecedor.getBairroFornecedor());
             fornecedor.setNumFornecedor(newFornecedor.getNumFornecedor());
