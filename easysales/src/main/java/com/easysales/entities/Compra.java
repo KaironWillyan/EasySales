@@ -1,6 +1,7 @@
 package com.easysales.entities;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.*;
 import java.sql.Timestamp;
@@ -15,6 +16,7 @@ public class Compra {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer idCompra;
 
+    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     @OneToMany(mappedBy = "compra")
     private List<ItemCompra> itemCompra;
 

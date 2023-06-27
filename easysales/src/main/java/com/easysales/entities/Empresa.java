@@ -1,5 +1,6 @@
 package com.easysales.entities;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -23,6 +24,7 @@ public class Empresa    {
     @Column(nullable = false)
     private String senha;
 
+    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     @OneToMany(mappedBy = "empresa")
     private List<Estoque> estoques;
 }

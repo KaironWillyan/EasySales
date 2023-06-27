@@ -1,5 +1,6 @@
 package com.easysales.entities;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -10,7 +11,6 @@ import java.lang.Integer;
 @NoArgsConstructor
 @Data
 public class Cliente {
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer idCli;
@@ -39,6 +39,7 @@ public class Cliente {
     @Column(nullable = false)
     private String cidadeCli;
 
+    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     @OneToMany(mappedBy = "cliente")
     private List<Venda> vendas;
 }

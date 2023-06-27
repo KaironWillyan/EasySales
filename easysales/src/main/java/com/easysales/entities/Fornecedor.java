@@ -1,5 +1,6 @@
 package com.easysales.entities;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -19,6 +20,9 @@ public class Fornecedor {
     private String nomeFornecedor;
 
     @Column(nullable = false)
+    private String cpfFornecedor;
+
+    @Column(nullable = false)
     private String ruaFornecedor;
 
     @Column(nullable = false)
@@ -36,6 +40,7 @@ public class Fornecedor {
     @Column(nullable = false)
     private String cidadeFornecedor;
 
+    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     @OneToMany(mappedBy = "fornecedor")
     private List<Compra> compras;
 }
