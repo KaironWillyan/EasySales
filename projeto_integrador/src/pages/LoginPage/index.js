@@ -111,7 +111,8 @@ export default LoginPage;
 
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-
+import './login.css';
+import logo from "../Img/Eassy.png"
 function LoginPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -158,25 +159,33 @@ function LoginPage() {
   };
 
   return (
-    <div>
-      <h1>Login</h1>
-      <form onSubmit={handleLogin}>
-        <div>
-          <label>Email:</label>
-          <input type="email" value={email} onChange={handleEmailChange} />
+    <div className="container">
+      <img src={logo}></img>
+      <div className="cadastro">
+        <h2>Login</h2>
+        <form onSubmit={handleLogin}>
+          <div className="form-group">
+            <label>Email:</label>
+            <input type="email" value={email} onChange={handleEmailChange} />
+          </div>
+          <div className="form-group">
+            <label>Senha:</label>
+            <input type="password" value={password} onChange={handlePasswordChange} />
+          </div>
+          <div className="button-container">
+            <button type="submit">Entrar</button>
+          </div>
+        </form>
+        <div className="button-container">
+          <button onClick={handleSignUp}>Cadastrar</button>
         </div>
-        <div>
-          <label>Senha:</label>
-          <input type="password" value={password} onChange={handlePasswordChange} />
-        </div>
-        <button type="submit">Entrar</button>
-      </form>
-      <button onClick={handleSignUp}>Cadastrar</button>
+      </div>
     </div>
   );
 }
 
 export default LoginPage;
+
 
 
 

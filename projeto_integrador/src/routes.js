@@ -43,7 +43,7 @@ export default RoutesApp;
  */
 
 
-import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+ import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import Header from './components/Header';
 import Pag_inicial from './pages/Pag_inicial';   
 import PesquisaFornecedores from './pages/Fornecedores';
@@ -55,10 +55,11 @@ import Produtos from './pages/Marcas';
 import Cadastro_prod from './pages/Marcas/Cadastro_prod';
 import CadastroFornecedor from './pages/Fornecedores/Cadastro_fornecedor';
 import CadastroVendas from './pages/Vendas/Cadastro_venda';
-import Login from "./pages/Login";
 import EditarCliente from "./pages/Clientes/EditarCliente";
-import LoginPage from './components/LoginPage';
-
+import LoginPage from './pages/LoginPage';
+import Cadastroempresa from './pages/LoginPage/CadastroEmpresa';
+import VendasPendentes from './pages/Relatorio/R_Vendas_Pend';
+import VendasQuitadas from './pages/Relatorio/R_Vendas_Quitadas';
 function App() {
   return (
     <BrowserRouter>
@@ -69,13 +70,16 @@ function App() {
 
 function RoutesApp(){
     const location = useLocation();
-    const isLoginPage = location.pathname === '/login';
+    const isLoginPage = location.pathname === '/';
+    const isCadastrarEmpresa = location.pathname === '/cadastroEmpresa';
 
     return(
         <>
-            {!isLoginPage && <Header />}
+            {!isLoginPage && !isCadastrarEmpresa && <Header />}
             <Routes>
-                <Route path="/" element={<Pag_inicial />} /> 
+                <Route path="/" element={<LoginPage />} /> 
+                <Route path="/cadastroEmpresa" element={ <Cadastroempresa/> }/> 
+                <Route path="/PagInicial" element={<Pag_inicial/>}/> 
                 <Route path="/clientes" element={<Clientes />} /> 
                 <Route path="/cadastroMarca" element={<Cadastro_marca />} /> 
                 <Route path='/marca/:id' element={<Produtos />} />
@@ -84,11 +88,17 @@ function RoutesApp(){
                 <Route path='/cadastroFornecedor' element={<CadastroFornecedor />} />
                 <Route path='/login' element={<LoginPage />} />
                 <Route path='/vendas' element={<Vendas />} />
+                <Route path='/Relatorio' element={<Relatorio />} />
+                <Route path='/VendasPendentes' element={<VendasPendentes/>} />
+                <Route path='/VendasQuitadas' element={<VendasQuitadas/>} />
                 <Route path='/cadastroVendas' element={<CadastroVendas />} />
                 <Route path='/:id/editarCliente' element={<EditarCliente />} />
+                
             </Routes>
         </>
     )  
 }
 
 export default App;
+ 
+
