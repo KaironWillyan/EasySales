@@ -173,8 +173,8 @@ function Cliente({ cliente, onEditar, onVisualizarPedidos, onDeletar }) {
         <div className="bt_cli">
           <button onClick={() => onEditar(cliente)}>Editar</button>
           <button onClick={() => onVisualizarPedidos(cliente)}>Pedidos</button>
-          <button onClick={() => onDeletar(id)}>Deletar</button>
-        </div>
+{/*           <button onClick={() => onDeletar(id)}>Deletar</button>
+ */}        </div>
       </div>
     </div>
   );
