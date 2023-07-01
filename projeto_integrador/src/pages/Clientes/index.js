@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import "./clientes.css";
+import api from '../../service/store/api';
 /*
 import { Link, useNavigate } from "react-router-dom";
 
@@ -200,6 +201,18 @@ function Clientes() {
     }
     // Adicione mais clientes aqui, se necessário
   ]);
+
+  useEffect(()=>{
+    api
+      .get("/cliente")
+      .then((response)=>setClientes(response.data))
+      .catch((err)=>{
+        console.error('Cliente n encontrado' + err);
+      });
+    }, [])
+
+    
+
 
   const [pedidos, setPedidos] = useState([
     {
