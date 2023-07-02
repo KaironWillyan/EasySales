@@ -112,7 +112,7 @@ export default LoginPage;
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './login.css';
-import logo from "../Img/Eassy.png"
+import logoremovebg from "../Img/logoremovebg.png"
 function LoginPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -159,16 +159,18 @@ function LoginPage() {
   };
 
   return (
-    <div className="container">
-      <img src={logo}></img>
-      <div className="cadastro">
+    <div className="container3">
+      <div className='Logo'>
+      <img src={logoremovebg}></img>
+      </div>
+      <div className="cadastroI">
         <h2>Login</h2>
         <form onSubmit={handleLogin}>
-          <div className="form-group">
+          <div className="form-groupI">
             <label>Email:</label>
             <input type="email" value={email} onChange={handleEmailChange} />
           </div>
-          <div className="form-group">
+          <div className="form-groupI">
             <label>Senha:</label>
             <input type="password" value={password} onChange={handlePasswordChange} />
           </div>

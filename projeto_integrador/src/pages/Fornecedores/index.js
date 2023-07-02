@@ -272,6 +272,9 @@ const PesquisaFornecedores = () => {
     </ul>
   )}
   </div>
+  <Link to="/cadastroFornecedor">
+        <button className="addProd">+</button>
+      </Link> 
 </div>
 
   );

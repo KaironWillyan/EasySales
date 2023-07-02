@@ -131,11 +131,11 @@
     }
   }
   
-  @media screen and (max-width: 480px) {
+ /*  @media screen and (max-width: 480px) {
     .bt_marca {
       flex-basis: calc(80% - 20px);
     }
-  }
+  } */
    
 
 /* Tamanho do bt fixo */
