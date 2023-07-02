@@ -138,7 +138,7 @@ const CadastroFornecedor = () => {
   };
 
   return (
-    <div className="container">
+    <div className="containerC">
       <div className="cadastro">
         <h2>Cadastro de Fornecedor</h2>
         <form onSubmit={handleSubmit}>

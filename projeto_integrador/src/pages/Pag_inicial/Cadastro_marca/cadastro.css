@@ -2,11 +2,12 @@
     font-family:Arial, Helvetica, sans-serif;
    }
 
-   .container {
+   .containerC {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
+    background-color: rgb(238, 238, 238, 0.5);
     
 }
 
@@ -32,9 +33,10 @@
     border-radius: 15px;
     padding: 10px;
     margin-top: 5px;
-    width:  95%;
-    background-color: rgba(245, 233, 23, 0.4);
-    border-color:  rgba(245, 233, 23, 0.8);
+    margin-bottom: 7px;
+    width:  90%;
+    background-color: rgba(245, 233, 23, 0.5);
+    border-color: none;
   }
   
   .button-container {

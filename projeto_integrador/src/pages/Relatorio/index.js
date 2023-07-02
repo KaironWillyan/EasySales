@@ -3,8 +3,11 @@ import "./relatorio.css"
 
 const TiposRelatorio =()=> {
         return(
-    <div className="container1">
+    <div className="containerR">
+        <div className="pRelatorio">
         <p className="PRelatorio">Selecione o qual relatorio voce gostaria de vizualizar:</p>
+
+        </div>
         <Link className= "Bt_relatorio"to ={`/VendasPendentes`}>
             <button>
                 Relatorio vendas pendentes
@@ -20,21 +23,12 @@ const TiposRelatorio =()=> {
                 Relatorio vendas efetuadas
             </button>
         </Link>
-        <Link className= "Bt_relatorio" to ={`/ComprasEfetuadas`}>
-            <button>
-                Relatorio vendas pendentes
-            </button>
-        </Link>
         <Link className= "Bt_relatorio" to ={`/StatusPrduto `}>
             <button>
                  Status do prduto 
             </button>
         </Link>
-        <Link className= "Bt_relatorio" to ={`/MairoesVendas`}>
-            <button>
-                Produtos de maiores vendas
-            </button>
-        </Link>
+       
         
     </div>
         )
@@ -51,15 +45,6 @@ function Relatorio(){
 }
 export default Relatorio
 
-/* vendas pendentes 
-vendas quitadas 
-e vendas efetuadas
 
 
-compras efetuadas 
 
-
-status do prduto 
-produtos que geraam maior venda
-alerar de produto sem estoque 
-*/
