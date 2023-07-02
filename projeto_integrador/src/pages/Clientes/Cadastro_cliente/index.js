@@ -1,4 +1,14 @@
+<<<<<<< HEAD
 import React, { useState } from 'react';
+=======
+function Clientes(){
+
+return(
+    <div className="container">
+        <h1>Cadastro</h1>
+        </div>
+    );
+>>>>>>> 10ef01b0de7587cebc5ce91070f90cb048e61aa2
 
 const CadastroCliente = () => {
   const [cliente, setCliente] = useState({
