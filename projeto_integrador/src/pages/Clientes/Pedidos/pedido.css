@@ -1,0 +1,29 @@
+.pedido {
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+  .pedido-parcelas {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .pedido-parcelas span {
+    font-weight: normal;
+  }
+  
+  .pedido-azul {
+    background-color: blue;
+    color: white;
+  }
+  
+  .pedido-verde {
+    background-color: green;
+    color: white;
+  }
+
+  .pedidoT{
+    background-color: yellow;
+    margin-bottom: 20px;
+  }

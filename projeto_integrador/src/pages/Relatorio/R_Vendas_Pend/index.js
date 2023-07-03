@@ -1,7 +1,11 @@
 import React from 'react';
 import Chart from 'react-apexcharts';
 import { Link, useActionData } from 'react-router-dom';
+<<<<<<< HEAD
+import  "../Grafico/graficos.css"
+=======
 import "./relatorio_vendasP.css";
+>>>>>>> 7b3a11d8bb7e42a7e7c6e62b09781892ee47c4ef
 
 function VendasPendentes() {
     const data = {
@@ -24,6 +28,18 @@ function VendasPendentes() {
     return (
         <div className='containerR'>
         <div className='grafico'>
+<<<<<<< HEAD
+            <Chart className= {"grafico1"}
+                options={data.options}
+                series={data.series}
+                type="bar"
+                width={600}
+                height={520}
+            />
+        </div>
+
+        <div class="tags">
+=======
             <Chart
                 options={data.options}
                 series={data.series}
@@ -34,6 +50,7 @@ function VendasPendentes() {
         </div>
 
         <div class="texto">
+>>>>>>> 7b3a11d8bb7e42a7e7c6e62b09781892ee47c4ef
             <p>Cliente com maior numero de pendencias: </p>
             <p>Cliente com menor numero de pendencias: </p>
         </div>

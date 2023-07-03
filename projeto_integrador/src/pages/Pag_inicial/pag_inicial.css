@@ -1,4 +1,6 @@
 
+<<<<<<< HEAD
+=======
   
   
 
@@ -65,6 +67,7 @@
       }
       
    */
+>>>>>>> 7b3a11d8bb7e42a7e7c6e62b09781892ee47c4ef
 /* tamanho do bt varia */
  
    .marcas {
@@ -131,6 +134,8 @@
     }
   }
   
+<<<<<<< HEAD
+=======
  /*  @media screen and (max-width: 480px) {
     .bt_marca {
       flex-basis: calc(80% - 20px);
@@ -192,3 +197,4 @@
     }
   } */
   
+>>>>>>> 7b3a11d8bb7e42a7e7c6e62b09781892ee47c4ef

@@ -23,8 +23,8 @@ function Navbar() {
             <Link className = 'link' to = "/PagInicial">Pagina inical</Link>
             <Link className = 'link' to = "fornecedores">Fornecedores</Link>
             <Link className = 'link' to = "/clientes">Clientes</Link>
-            <Link className = 'link' to = "/vendas">Vendas</Link>
-            <Link className = 'link' to = "/relatorio">Relatorio</Link>
+{/*             <Link className = 'link' to = "/vendas">Vendas</Link>
+ */}            <Link className = 'link' to = "/relatorio">Relatorio</Link>
             <Link className = 'link' to = "/Configuracao">Configuração</Link> {/* Pensar em como fazer */}
             <Link className 	= 'link' to = "/">Sair</Link>
 				<button
