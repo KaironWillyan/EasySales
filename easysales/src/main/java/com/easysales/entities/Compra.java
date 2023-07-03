@@ -26,7 +26,7 @@ public class Compra {
 
     @Column(nullable = false)
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm")
-    private Timestamp dataCompra;
+    private Timestamp dtCompra;
 
     @Column(nullable = false)
     private Float valorTotalCompra;

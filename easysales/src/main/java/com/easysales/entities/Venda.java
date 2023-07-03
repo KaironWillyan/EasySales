@@ -30,23 +30,24 @@ public class Venda {
     @OneToMany(mappedBy = "venda")
     private List<ItemVenda> itemVenda;
 
-    @ManyToOne
-    @JoinColumn(name="cliente_id", nullable = false)
+     @ManyToOne
+    @JoinColumn(name = "idCli", referencedColumnName = "idCli", nullable = false)
     private Cliente cliente;
-
-    @Column(nullable = false)
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm")
+    
+    @Column(name = "valorTotalVenda", nullable = false)
+    private float valorTotalVenda;
+    
+    @Column(name = "dtVenda", nullable = false)
     private Timestamp dtVenda;
-
-    @Column(nullable = false)
-    private Integer qtdItens;
-
-    @Column(nullable = false)
-    private Integer qtdParcelas;
-
-    @Column(nullable = false)
+    
+    @Column(name = "qtdItens", nullable = false)
+    private int qtdItens;
+    
+    @Column(name = "qtdParcelasTotal", nullable = false)
+    private int qtdParcelasTotal;
+    
+    @Column(name = "qtdParcelasFalta")
     private Integer qtdParcelasFalta;
 
-    @Column(nullable = false)
-    private Float valorTotalVenda;
 }
+   

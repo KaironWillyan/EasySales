@@ -24,13 +24,16 @@ public class Estoque {
     private List<ItemCompra> itemCompra;
 
     @ManyToOne
-    @JoinColumn(name = "estoque_id", nullable = false)
+    @JoinColumn(name = "empId", referencedColumnName = "idEmp", nullable = false)
     private Empresa empresa;
-
+    
     @ManyToOne
-    @JoinColumn(name = "produto_id", nullable = false)
+    @JoinColumn(name = "prodId", referencedColumnName = "idProd", nullable = false)
     private Produto produto;
-
-    @Column(nullable = false)
-    private Float valorVenda;
+    
+    @Column(name = "precoProd", nullable = false)
+    private float precoProd;
+    
+    @Column(name = "quantEstq", nullable = false)
+    private int quantEstq;
 }

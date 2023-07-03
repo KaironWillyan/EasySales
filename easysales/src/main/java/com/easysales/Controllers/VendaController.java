@@ -1,6 +1,6 @@
 package com.easysales.Controllers;
 
-import com.easysales.Repositories.VendaRepository;
+import com.easysales.Service.VendaService;
 import com.easysales.entities.Venda;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -15,54 +15,35 @@ import java.util.Optional;
 @RestController
 public class VendaController {
     @Autowired
-    private VendaRepository vendaRepository;
+    private VendaService vendaService;
 
     @GetMapping("/venda")
     public List<Venda> getVenda(){
-        return vendaRepository.findAll();
+        return vendaService.getAllVendas();
     }
+    
     @RequestMapping(value = "/venda/{id}", method = RequestMethod.GET)
-    public ResponseEntity<Venda> GetVendaById(@PathVariable(value = "idVenda") Integer id){
-        Optional<Venda> venda = vendaRepository.findById(id);
-        if(venda.isPresent()){
-            return new ResponseEntity<Venda>(venda.get(), HttpStatus.OK);
+    public ResponseEntity<Venda> GetVendaById(@PathVariable  Integer id){
+        Venda venda = vendaService.getVendaById(id);
+        if(venda != null){
+            return new ResponseEntity<Venda>(venda, HttpStatus.OK);
         }
         throw new ResponseStatusException(
                 HttpStatus.NOT_FOUND, "Venda não encontrado."
         );
     }
 
-//    @RequestMapping(value = "/Venda/{N}", method = RequestMethod.GETC
-// R  public ResponseEntity<List<Venda>> GetVendaByNome(@RBquestParam String nome){
-// N      List<Venda> venda = VendaService.findByNome(nome);
-// L      if (venda != null){
-//            return new ResponseEntity<Venda>(venda.get(), HttpStatus.OK);
-//        }
-//        throw new ResponseStatusException(
-//          HttpStatus.NOT_FOUND, "venda não encontrado."
-//        );
-//    }
-
     @PostMapping("/venda")
     public Venda PostVenda(@Validated @RequestBody Venda venda){
-        return vendaRepository.saveAndFlush(venda);
+        return vendaService.createVenda(venda);
     }
 
     @PutMapping("/venda/{id}")
-    public ResponseEntity<Venda> PutVenda(@PathVariable(value = "idVenda") Integer id, @Validated @RequestBody Venda newVenda)
+    public ResponseEntity<Venda> PutVenda(@PathVariable Integer id, @Validated @RequestBody Venda newVenda)
     {
-        Optional<Venda> oldVenda = vendaRepository.findById(id);
-        if(oldVenda.isPresent()){
-            Venda venda = oldVenda.get();
-            venda.setItemVenda(newVenda.getItemVenda());
-            venda.setCliente(newVenda.getCliente());
-            venda.setDtVenda(newVenda.getDtVenda());
-            venda.setQtdItens(newVenda.getQtdItens());
-            venda.setQtdParcelas(newVenda.getQtdParcelas());
-            venda.setQtdParcelasFalta(newVenda.getQtdParcelasFalta());
-            venda.setValorTotalVenda(newVenda.getValorTotalVenda());
-            vendaRepository.save(venda);
-            return new ResponseEntity<Venda>(venda, HttpStatus.OK);
+        Venda updatedVenda = vendaService.updateVenda(id, newVenda);
+        if(updatedVenda != null){
+            return new ResponseEntity<Venda>(updatedVenda, HttpStatus.OK);
         }
         throw new ResponseStatusException(
                 HttpStatus.NOT_FOUND, "venda não encontrado."
@@ -70,20 +51,11 @@ public class VendaController {
     }
 
     @DeleteMapping("/venda/{id}")
-    public ResponseEntity<Venda> DeleteVenda(@PathVariable(value = "id") Integer id){
-        Optional<Venda> venda = vendaRepository.findById((id));
-        if (venda.isPresent()){
-            vendaRepository.delete(venda.get());
-            return new ResponseEntity<>(HttpStatus.OK);
-        }
+    public ResponseEntity<Venda> DeleteVenda(@PathVariable  Integer id){
+        vendaService.deleteVenda((id));
+       
         throw new ResponseStatusException(
                 HttpStatus.NOT_FOUND, "venda não encontrado."
         );
-    }
-
-    @DeleteMapping("/venda")
-    public ResponseEntity<Venda> DeleteAllVenda(){
-        vendaRepository.deleteAll();
-        return new ResponseEntity<>(HttpStatus.OK);
     }
 }

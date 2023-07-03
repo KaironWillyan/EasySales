@@ -1,4 +1,4 @@
-package com.easysales.entities;
+        package com.easysales.entities;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
@@ -22,9 +22,6 @@ public class Cliente {
     private String cpfCli;
 
     @Column(nullable = false)
-    private String ruaCli;
-
-    @Column(nullable = false)
     private String bairroCli;
 
     @Column(nullable = false)
@@ -38,6 +35,12 @@ public class Cliente {
 
     @Column(nullable = false)
     private String cidadeCli;
+
+    @Column(name = "email", nullable = false)
+    private String email;
+    
+    @Column(name = "telefone", nullable = false)
+    private String telefone;
 
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     @OneToMany(mappedBy = "cliente")

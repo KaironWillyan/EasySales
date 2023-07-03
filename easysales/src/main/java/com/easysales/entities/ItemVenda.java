@@ -4,12 +4,14 @@ import java.util.List;
 import java.lang.Integer;
 
 import jakarta.persistence.Column;
+import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.MapsId;
 import jakarta.persistence.OneToMany;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -18,21 +20,22 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 public class ItemVenda {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer itemVendaId;
+    @EmbeddedId
+    private ItemVendaId id;
 
     @ManyToOne
-    @JoinColumn(name = "estoque_id")
-    private Estoque estoque;
-
-    @ManyToOne
-    @JoinColumn(name = "venda_id", nullable = false)
+    @MapsId("vendaId")
+    @JoinColumn(name = "venda_id")
     private Venda venda;
 
-    @Column()
-    private Float precoItemVenda;
-
-    @Column()
-    private Float valorTotalItemVenda;
+    @ManyToOne
+    @MapsId("estoqueId")
+    @JoinColumn(name = "estoque_id")
+    private Estoque estoque;
+    
+    @Column(name = "qtdVendida", nullable = false)
+    private int qtdVendida;
+    
+    @Column(name = "valorTotalItemV", nullable = false)
+    private float valorTotalItemV;
 }

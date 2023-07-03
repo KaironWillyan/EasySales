@@ -1,7 +1,7 @@
 package com.easysales.Controllers;
 
 import com.easysales.Repositories.ItemCompraRepository;
-import com.easysales.Repositories.ItemVendaRepositpry;
+import com.easysales.Service.ItemVendaService;
 import com.easysales.entities.ItemVenda;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -15,18 +15,18 @@ import java.util.Optional;
 
 public class ItemVendaController {
     @Autowired
-    private ItemVendaRepositpry itemVendaRepository;;
+    private ItemVendaService itemVendaService;;
 
     @GetMapping("/itemVenda")
     public List<ItemVenda> getItemVenda(){
-        return itemVendaRepository.findAll();
+        return itemVendaService.getAllItensVenda();
     }
 
-    @GetMapping("/itemVenda/{id}")
-    public ResponseEntity<ItemVenda> GetItemVendaById(@PathVariable(value = "idItemVenda") Integer id){
-        Optional<ItemVenda> itemVenda = itemVendaRepository.findById(id);
-        if(itemVenda.isPresent()){
-            return new ResponseEntity<ItemVenda>(itemVenda.get(), HttpStatus.OK);
+    @GetMapping("/itemVenda/{vendaId}/{estoqueId}")
+    public ResponseEntity<ItemVenda> GetItemVendaById(@PathVariable Integer vendaId, @PathVariable Integer estoqueId){
+        ItemVenda itemVenda = itemVendaService.getItemVendaById(vendaId, estoqueId);
+        if(itemVenda != null){
+            return new ResponseEntity<ItemVenda>(itemVenda, HttpStatus.OK);
         }
         throw new ResponseStatusException(
                 HttpStatus.NOT_FOUND, "ItemVenda não encontrado."
@@ -34,42 +34,26 @@ public class ItemVendaController {
     };
     @PostMapping("/itemVenda")
     public ItemVenda PostItemVenda(@Validated @RequestBody ItemVenda itemVenda){
-        return itemVendaRepository.saveAndFlush(itemVenda);
+        return itemVendaService.createItemVenda(itemVenda);
     }
 
-    @PutMapping("/itemVenda/{id}")
-    public ResponseEntity<ItemVenda> PutItemVenda(@PathVariable(value = "idItemVenda") Integer id, @Validated @RequestBody ItemVenda newItemVenda)
+    @PutMapping("/itemVenda/{vendaId}/{estoqueId}")
+    public ResponseEntity<ItemVenda> PutItemVenda(@PathVariable Integer vendaId, @PathVariable Integer estoqueId, @Validated @RequestBody ItemVenda newItemVenda)
     {
-        Optional<ItemVenda> oldItemVenda = itemVendaRepository.findById(id);
-        if(oldItemVenda.isPresent()){
-            ItemVenda itemVenda = oldItemVenda.get();
-            itemVenda.setEstoque(newItemVenda.getEstoque());
-            itemVenda.setVenda(newItemVenda.getVenda());
-            itemVenda.setValorTotalItemVenda(newItemVenda.getValorTotalItemVenda());
-            itemVenda.setPrecoItemVenda(newItemVenda.getPrecoItemVenda());
-            itemVendaRepository.save(itemVenda);
-            return new ResponseEntity<ItemVenda>(itemVenda, HttpStatus.OK);
+        ItemVenda updatedItemVenda = itemVendaService.updateItemVenda(vendaId, estoqueId, newItemVenda);
+        if(updatedItemVenda != null){
+            return new ResponseEntity<ItemVenda>(updatedItemVenda, HttpStatus.OK);
         }
         throw new ResponseStatusException(
                 HttpStatus.NOT_FOUND, "itemVenda não encontrado."
         );
     }
 
-    @DeleteMapping("/itemVenda/{id}")
-    public ResponseEntity<ItemVenda> DeleteItemVenda(@PathVariable(value = "idItemVenda") Integer id){
-        Optional<ItemVenda> itemVenda = itemVendaRepository.findById((id));
-        if (itemVenda.isPresent()){
-            itemVendaRepository.delete(itemVenda.get());
-            return new ResponseEntity<>(HttpStatus.OK);
-        }
+    @DeleteMapping("/itemVenda//{vendaId}/{estoqueId}")
+    public ResponseEntity<ItemVenda> DeleteItemVenda(@PathVariable Integer vendaId, @PathVariable Integer estoqueId){
+       itemVendaService.deleteItemVenda(vendaId, estoqueId);
         throw new ResponseStatusException(
                 HttpStatus.NOT_FOUND, "itemVenda não encontrado."
         );
-    }
-
-    @DeleteMapping("/itemVenda")
-    public ResponseEntity<ItemVenda> DeleteAllItemVenda(){
-        itemVendaRepository.deleteAll();
-        return new ResponseEntity<>(HttpStatus.OK);
     }
 }

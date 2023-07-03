@@ -1,6 +1,6 @@
 package com.easysales.Controllers;
 
-import com.easysales.Repositories.ProdutoRepository;
+import com.easysales.Service.ProdutoService;
 import com.easysales.entities.Produto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -21,49 +21,34 @@ import java.util.Optional;
 @RestController
 public class ProdutoController{
     @Autowired
-    private ProdutoRepository produtoRepository;
+    private ProdutoService produtoService;
 
     @GetMapping("/produto")
     public List<Produto> getProduto(){
-        return produtoRepository.findAll();
+        return produtoService.getAllProdutos();
     }
     @GetMapping(value = "/produto/{id}")
-    public ResponseEntity<Produto> GetProdutoById(@PathVariable(value = "idProd") Integer id){
-        Optional<Produto> produto = produtoRepository.findById(id);
-        if(produto.isPresent()){
-            return new ResponseEntity<Produto>(produto.get(), HttpStatus.OK);
+    public ResponseEntity<Produto> GetProdutoById(@PathVariable Integer id){
+        Produto produto = produtoService.getProdutoById(id);
+        if(produto != null){
+            return new ResponseEntity<Produto>(produto, HttpStatus.OK);
         }
         throw new ResponseStatusException(
                 HttpStatus.NOT_FOUND, "Produto não encontrado."
         );
     }
 
-//    @RequestMapping(value = "/Produto/{N}", method = RequestMethod.GETC
-// R  public ResponseEntity<List<Produto>> GetProdutoByNome(@RBquestParam String nome){
-// N      List<Produto> produto = ProdutoService.findByNome(nome);
-// L      if (produto != null){
-//            return new ResponseEntity<Produto>(produto.get(), HttpStatus.OK);
-//        }
-//        throw new ResponseStatusException(
-//          HttpStatus.NOT_FOUND, "produto não encontrado."
-//        );
-//    }
-
-
     @PostMapping("/produto")
     public Produto PostProduto(@Validated @RequestBody Produto produto){
-        return produtoRepository.saveAndFlush(produto);
+        return produtoService.createProduto(produto);
     }
 
     @PutMapping("/produto/{id}")
-    public ResponseEntity<Produto> PutProduto(@PathVariable(value = "idProd") Integer id, @Validated @RequestBody Produto newProduto)
+    public ResponseEntity<Produto> PutProduto(@PathVariable Integer id, @Validated @RequestBody Produto newProduto)
     {
-        Optional<Produto> oldProduto = produtoRepository.findById(id);
-        if(oldProduto.isPresent()){
-            Produto produto = oldProduto.get();
-            produto.setNomeProduto(newProduto.getNomeProduto());
-            produtoRepository.save(produto);
-            return new ResponseEntity<Produto>(produto, HttpStatus.OK);
+        Produto updateProduto = produtoService.updateProduto(id, newProduto);
+        if(updateProduto != null){
+            return new ResponseEntity<Produto>(updateProduto, HttpStatus.OK);
         }
         throw new ResponseStatusException(
                 HttpStatus.NOT_FOUND, "produto não encontrado."
@@ -71,20 +56,11 @@ public class ProdutoController{
     }
 
     @DeleteMapping("/produto/{id}")
-    public ResponseEntity<Produto> DeleteProduto(@PathVariable(value = "idProd") Integer id){
-        Optional<Produto> produto = produtoRepository.findById((id));
-        if (produto.isPresent()){
-            produtoRepository.delete(produto.get());
-            return new ResponseEntity<>(HttpStatus.OK);
-        }
+    public ResponseEntity<Produto> DeleteProduto(@PathVariable  Integer id){
+        produtoService.deleteProduto((id));
+
         throw new ResponseStatusException(
                 HttpStatus.NOT_FOUND, "produto não encontrado."
         );
-    }
-
-    @DeleteMapping("/produto")
-    public ResponseEntity<Produto> DeleteAllProduto(){
-        produtoRepository.deleteAll();
-        return new ResponseEntity<>(HttpStatus.OK);
     }
 }

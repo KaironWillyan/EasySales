@@ -1,7 +1,6 @@
 package com.easysales.Controllers;
 
-import com.easysales.Repositories.EstoqueRepository;
-import com.easysales.Repositories.EstoqueRepository;
+import com.easysales.Service.EstoqueService;
 import com.easysales.entities.Estoque;
 import com.easysales.entities.Estoque;
 import com.easysales.entities.Estoque;
@@ -19,18 +18,18 @@ import java.util.Optional;
 @RestController
 public class EstoqueController {
     @Autowired
-    private EstoqueRepository estoqueRepository;;
+    private EstoqueService estoqueService;
 
     @GetMapping("/estoque")
     public List<Estoque> getEstoque(){
-        return estoqueRepository.findAll();
+        return estoqueService.getAllEstoques();
     }
 
     @GetMapping("/estoque/{id}")
     public ResponseEntity<Estoque> GetEstoqueById(@PathVariable(value = "idEstoque") Integer id){
-        Optional<Estoque> estoque = estoqueRepository.findById(id);
-        if(estoque.isPresent()){
-            return new ResponseEntity<Estoque>(estoque.get(), HttpStatus.OK);
+        Estoque estoque = estoqueService.getEstoqueById(id);
+        if(estoque != null){
+            return new ResponseEntity<Estoque>(estoque, HttpStatus.OK);
         }
         throw new ResponseStatusException(
                 HttpStatus.NOT_FOUND, "Estoque não encontrado."
@@ -38,22 +37,16 @@ public class EstoqueController {
     };
     @PostMapping("/estoque")
     public Estoque PostEstoque(@Validated @RequestBody Estoque estoque){
-        return estoqueRepository.saveAndFlush(estoque);
+        return estoqueService.createEstoque(estoque);
     }
 
     @PutMapping("/estoque/{id}")
     public ResponseEntity<Estoque> PutEstoque(@PathVariable(value = "idEstoque") Integer id, @Validated @RequestBody Estoque newEstoque)
     {
-        Optional<Estoque> oldEstoque = estoqueRepository.findById(id);
-        if(oldEstoque.isPresent()){
-            Estoque estoque = oldEstoque.get();
-            estoque.setProduto(newEstoque.getProduto());
-            estoque.setEmpresa(newEstoque.getEmpresa());
-            estoque.setValorVenda(newEstoque.getValorVenda());
-            estoque.setItemVenda(newEstoque.getItemVenda());
-            estoque.setItemCompra(newEstoque.getItemCompra());
-            estoqueRepository.save(estoque);
-            return new ResponseEntity<Estoque>(estoque, HttpStatus.OK);
+        Estoque updatedEstoque = estoqueService.updateEstoque(id, newEstoque);
+        if(updatedEstoque != null){
+           
+            return new ResponseEntity<Estoque>(updatedEstoque, HttpStatus.OK);
         }
         throw new ResponseStatusException(
                 HttpStatus.NOT_FOUND, "estoque não encontrado."
@@ -62,19 +55,11 @@ public class EstoqueController {
 
     @DeleteMapping("/estoque/{id}")
     public ResponseEntity<Estoque> DeleteEstoque(@PathVariable(value = "idEstoque") Integer id){
-        Optional<Estoque> estoque = estoqueRepository.findById((id));
-        if (estoque.isPresent()){
-            estoqueRepository.delete(estoque.get());
-            return new ResponseEntity<>(HttpStatus.OK);
-        }
+        estoqueService.deleteEstoque(id);
+
         throw new ResponseStatusException(
                 HttpStatus.NOT_FOUND, "estoque não encontrado."
         );
     }
 
-    @DeleteMapping("/estoque")
-    public ResponseEntity<Estoque> DeleteAllEstoque(){
-        estoqueRepository.deleteAll();
-        return new ResponseEntity<>(HttpStatus.OK);
-    }
 }

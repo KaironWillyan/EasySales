@@ -1,6 +1,6 @@
 package com.easysales.Controllers;
 
-import com.easysales.Repositories.FornecedorRepository;
+import com.easysales.Service.FornecedorService;
 import com.easysales.entities.Fornecedor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -18,23 +18,23 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
-import java.util.Optional;
 import java.lang.Integer;
 
 @RestController
 public class FornecedorController{
     @Autowired
-    private FornecedorRepository fornecedorRepository;
+    private FornecedorService fornecedorService;
 
     @GetMapping("/fornecedor")
     public List<Fornecedor> getFornecedor(){
-        return fornecedorRepository.findAll();
+        return fornecedorService.getAllFornecedores();
     }
+
     @RequestMapping(value = "/fornecedor/{id}", method = RequestMethod.GET)
-    public ResponseEntity<Fornecedor> GetFornecedorById(@PathVariable(value = "idFornecedor") Integer id){
-        Optional<Fornecedor> fornecedor = fornecedorRepository.findById(id);
-        if(fornecedor.isPresent()){
-            return new ResponseEntity<Fornecedor>(fornecedor.get(), HttpStatus.OK);
+    public ResponseEntity<Fornecedor> GetFornecedorById(@PathVariable(value = "idFn") Integer id){
+        Fornecedor fornecedor = fornecedorService.getFornecedorById(id);
+        if(fornecedor != null){
+            return new ResponseEntity<Fornecedor>(fornecedor, HttpStatus.OK);
         }
         throw new ResponseStatusException(
                 HttpStatus.NOT_FOUND, "Fornecedor não encontrado."
@@ -55,46 +55,26 @@ public class FornecedorController{
 
     @PostMapping("/fornecedor")
     public Fornecedor PostFornecedor(@Validated @RequestBody Fornecedor fornecedor){
-        return fornecedorRepository.saveAndFlush(fornecedor);
+        return fornecedorService.createFornecedor(fornecedor);
     }
 
     @PutMapping("/fornecedor/{id}")
-    public ResponseEntity<Fornecedor> PutFornecedor(@PathVariable(value = "idFornecedor") Integer id, @Validated @RequestBody Fornecedor newFornecedor)
+    public ResponseEntity<Fornecedor> PutFornecedor(@PathVariable(value = "idFn") Integer id, @Validated @RequestBody Fornecedor newFornecedor)
     {
-        Optional<Fornecedor> oldFornecedor = fornecedorRepository.findById(id);
-        if(oldFornecedor.isPresent()){
-            Fornecedor fornecedor = oldFornecedor.get();
-            fornecedor.setNomeFornecedor(newFornecedor.getNomeFornecedor());
-            fornecedor.setCpfFornecedor(newFornecedor.getCpfFornecedor());
-            fornecedor.setRuaFornecedor(newFornecedor.getRuaFornecedor());
-            fornecedor.setBairroFornecedor(newFornecedor.getBairroFornecedor());
-            fornecedor.setNumFornecedor(newFornecedor.getNumFornecedor());
-            fornecedor.setLogradouroFornecedor(newFornecedor.getLogradouroFornecedor());
-            fornecedor.setCepFornecedor(newFornecedor.getCepFornecedor());
-            fornecedor.setCidadeFornecedor(newFornecedor.getCidadeFornecedor());
-            fornecedorRepository.save(fornecedor);
-            return new ResponseEntity<Fornecedor>(fornecedor, HttpStatus.OK);
-        }
+      Fornecedor updatedFornecedor = fornecedorService.updateFornecedor(id, newFornecedor);
+      if(updatedFornecedor != null){
+        return new ResponseEntity<Fornecedor>(updatedFornecedor, HttpStatus.OK);
+    }
         throw new ResponseStatusException(
                 HttpStatus.NOT_FOUND, "fornecedor não encontrado."
         );
     }
 
     @DeleteMapping("/fornecedor/{id}")
-    public ResponseEntity<Fornecedor> DeleteFornecedor(@PathVariable(value = "idFornecedor") Integer id){
-        Optional<Fornecedor> fornecedor = fornecedorRepository.findById((id));
-        if (fornecedor.isPresent()){
-            fornecedorRepository.delete(fornecedor.get());
-            return new ResponseEntity<>(HttpStatus.OK);
-        }
+    public ResponseEntity<Fornecedor> DeleteFornecedor(@PathVariable(value = "idFn") Integer id){
+     fornecedorService.deleteFornecedor(id);
         throw new ResponseStatusException(
                 HttpStatus.NOT_FOUND, "fornecedor não encontrado."
         );
-    }
-
-    @DeleteMapping("/fornecedor")
-    public ResponseEntity<Fornecedor> DeleteAllFornecedor(){
-        fornecedorRepository.deleteAll();
-        return new ResponseEntity<>(HttpStatus.OK);
     }
 }

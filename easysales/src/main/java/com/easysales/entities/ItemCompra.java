@@ -11,26 +11,25 @@ import java.lang.Integer;
 @NoArgsConstructor
 @Data
 public class ItemCompra {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer itemCompraId;
+    @EmbeddedId
+    private ItemCompraId id;
 
     @ManyToOne
+    @MapsId("compraId")
     @JoinColumn(name = "compra_id")
     private Compra compra;
 
     @ManyToOne
-    @JoinColumn(name = "estoque_id", nullable = false)
+    @MapsId("estoqueId")
+    @JoinColumn(name = "estoque_id")
     private Estoque estoque;
-
-    @Column(nullable = false)
-    private Integer qtdComprada;
-
-    @Column(nullable = false)
-    private Float valorUnitCompra;
-
-    @Column(nullable = false)
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm")
-    private Timestamp dtCompra;
-
+    
+    @Column(name = "qtdComprada", nullable = false)
+    private int qtdComprada;
+    
+    @Column(name = "valorTotalItemC", nullable = false)
+    private float valorTotalItemC;
+    
+    @Column(name = "precoProdC", nullable = false)
+    private float precoProdC;
 }

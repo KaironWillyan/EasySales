@@ -12,33 +12,37 @@ import java.lang.Integer;
 @Data
 public class Fornecedor {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer idFornecedor;
-
-    @Column(nullable = false)
-    private String nomeFornecedor;
-
-    @Column(nullable = false)
-    private String cpfFornecedor;
-
-    @Column(nullable = false)
-    private String ruaFornecedor;
-
-    @Column(nullable = false)
-    private String bairroFornecedor;
-
-    @Column(nullable = false)
-    private String numFornecedor;
-
-    @Column(nullable = false)
-    private String logradouroFornecedor;
-
-    @Column(nullable = false)
-    private String cepFornecedor;
-
-    @Column(nullable = false)
-    private String cidadeFornecedor;
+   @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "idFn")
+    private int idFn;
+    
+    @Column(name = "nomeFn", nullable = false)
+    private String nomeFn;
+    
+    @Column(name = "bairroFn", nullable = false)
+    private String bairroFn;
+    
+    @Column(name = "numFn", nullable = false)
+    private String numFn;
+    
+    @Column(name = "logradouroFn", nullable = false)
+    private String logradouroFn;
+    
+    @Column(name = "cepFn", nullable = false)
+    private String cepFn;
+    
+    @Column(name = "cidadeFn", nullable = false)
+    private String cidadeFn;
+    
+    @Column(name = "telefoneFn", nullable = false)
+    private String telefoneFn;
+    
+    @Column(name = "cpfFn", nullable = false)
+    private String cpfFn;
+    
+    @Column(name = "emailFn", nullable = false)
+    private String emailFn;
 
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     @OneToMany(mappedBy = "fornecedor")
