@@ -1,10 +1,7 @@
 import React from 'react';
 import Chart from 'react-apexcharts';
 import { Link } from 'react-router-dom';
-<<<<<<< HEAD
 import  "../Grafico/graficos.css"
-=======
->>>>>>> 7b3a11d8bb7e42a7e7c6e62b09781892ee47c4ef
 
 function VendasQuitadas() {
     const data = {
@@ -25,15 +22,9 @@ function VendasQuitadas() {
     };
 
     return (
-<<<<<<< HEAD
         <div className='containerR'>
         <div className='grafico'>
             <Chart className= {"grafico1"}
-=======
-        <div>
-        <div className='grafico'>
-            <Chart
->>>>>>> 7b3a11d8bb7e42a7e7c6e62b09781892ee47c4ef
                 options={data.options}
                 series={data.series}
                 type="bar"
@@ -41,7 +32,6 @@ function VendasQuitadas() {
                 height={320}
             />
         </div>
-<<<<<<< HEAD
 
         <div class="tags">
             <p>Cliente com maior numero de pendencias: </p>
@@ -49,10 +39,6 @@ function VendasQuitadas() {
         </div>
         <Link to = {"/Relatorio"}>
             <button className='botao-voltar'>
-=======
-        <Link to = {"/Relatorio"}>
-            <button>
->>>>>>> 7b3a11d8bb7e42a7e7c6e62b09781892ee47c4ef
                 Voltar 
             </button>
         </Link>
@@ -60,10 +46,7 @@ function VendasQuitadas() {
     );
 }
 
-<<<<<<< HEAD
 
-=======
->>>>>>> 7b3a11d8bb7e42a7e7c6e62b09781892ee47c4ef
 export default VendasQuitadas;
 
 
