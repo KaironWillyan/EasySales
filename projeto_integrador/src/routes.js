@@ -74,7 +74,7 @@ function RoutesApp(){
     const isCadastrarEmpresa = location.pathname === '/cadastroEmpresa';
 
     return(
-        <>
+        <div>
             {!isLoginPage && !isCadastrarEmpresa && <Header />}
             <Routes>
                 <Route path="/" element={<LoginPage />} /> 
@@ -95,7 +95,7 @@ function RoutesApp(){
                 <Route path='/:id/editarCliente' element={<EditarCliente />} />
                 
             </Routes>
-        </>
+        </div>
     )  
 }
 
