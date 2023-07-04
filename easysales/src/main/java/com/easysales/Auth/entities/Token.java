@@ -1,6 +1,7 @@
 package com.easysales.Auth.entities;
 
 import com.easysales.constants.TokenType;
+import com.easysales.entities.Empresa;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

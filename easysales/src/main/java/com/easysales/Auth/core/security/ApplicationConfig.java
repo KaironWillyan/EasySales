@@ -14,14 +14,12 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 import com.easysales.Auth.Repositorie.AccountRepository;
 
-@Configuration
 @RequiredArgsConstructor
 public class ApplicationConfig {
-    private final AccountRepository _accountRepository;
-
+    private final AccountRepository accountRepository;
 
     @Bean
-    public AuthenticationProvider authenticationProvider() {
+    AuthenticationProvider authenticationProvider() {
         DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
         authProvider.setUserDetailsService(userDetailsService());
         authProvider.setPasswordEncoder(passwordEncoder());
@@ -29,18 +27,18 @@ public class ApplicationConfig {
     }
 
     @Bean
-    public UserDetailsService userDetailsService() {
-        return username -> _accountRepository.findByEmail(username)
+    UserDetailsService userDetailsService() {
+        return username -> accountRepository.findByEmail(username)
             .orElseThrow(() -> new UsernameNotFoundException("User not found"));
     }
 
     @Bean
-    public AuthenticationManager authenticationManager(AuthenticationConfiguration config) throws Exception {
+    AuthenticationManager authenticationManager(AuthenticationConfiguration config) throws Exception {
         return config.getAuthenticationManager();
     }
 
     @Bean
-    public PasswordEncoder passwordEncoder() {
+    PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
 }
