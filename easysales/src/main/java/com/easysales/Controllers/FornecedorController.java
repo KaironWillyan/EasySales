@@ -31,7 +31,7 @@ public class FornecedorController{
     }
 
     @RequestMapping(value = "/fornecedor/{id}", method = RequestMethod.GET)
-    public ResponseEntity<Fornecedor> GetFornecedorById(@PathVariable(value = "idFn") Integer id){
+    public ResponseEntity<Fornecedor> GetFornecedorById(@PathVariable Integer id){
         Fornecedor fornecedor = fornecedorService.getFornecedorById(id);
         if(fornecedor != null){
             return new ResponseEntity<Fornecedor>(fornecedor, HttpStatus.OK);

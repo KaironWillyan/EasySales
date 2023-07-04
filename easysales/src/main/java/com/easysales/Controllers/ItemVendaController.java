@@ -1,6 +1,5 @@
 package com.easysales.Controllers;
 
-import com.easysales.Repositories.ItemCompraRepository;
 import com.easysales.Service.ItemVendaService;
 import com.easysales.entities.ItemVenda;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,11 +10,13 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
-import java.util.Optional;
 
+@RestController
 public class ItemVendaController {
     @Autowired
-    private ItemVendaService itemVendaService;;
+    private ItemVendaService itemVendaService;
+
+
 
     @GetMapping("/itemVenda")
     public List<ItemVenda> getItemVenda(){
