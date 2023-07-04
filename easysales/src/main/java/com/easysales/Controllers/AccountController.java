@@ -1,4 +1,4 @@
-package com.easysales.Auth.Controller;
+package com.easysales.Controllers;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -8,10 +8,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.easysales.Auth.dto.AuthenticationResponseDto;
-import com.easysales.Auth.dto.CredentialsDto;
-import com.easysales.Auth.dto.RegisterDto;
-import com.easysales.Auth.usecases.AccountUsecase;
+
+import com.easysales.Service.AccountUsecase;
+import com.easysales.dto.AuthenticationResponseDto;
+import com.easysales.dto.CredentialsDto;
+import com.easysales.dto.RegisterDto;
 
 import java.io.IOException;
 

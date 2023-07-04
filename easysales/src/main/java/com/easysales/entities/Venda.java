@@ -3,9 +3,6 @@ package com.easysales.entities;
 import java.security.Timestamp;
 import java.util.List;
 import java.lang.Integer;
-
-import com.fasterxml.jackson.annotation.JsonFormat;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

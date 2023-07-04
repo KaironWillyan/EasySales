@@ -1,11 +1,7 @@
 package com.easysales.entities;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.*;
-
-import java.sql.Timestamp;
-import java.lang.Integer;
 
 @Entity
 @NoArgsConstructor

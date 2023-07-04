@@ -13,9 +13,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
-
-import com.easysales.Auth.Repositorie.TokenRepository;
-
+import com.easysales.Repositories.TokenRepository;
 import java.io.IOException;
 
 
@@ -40,9 +38,9 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
         final String jwt = _extractJwtFromRequest(request);
         if (_isValidJwt(jwt)) {
-            final String userEmail = jwtService.extractUsername(jwt);
-            if (_shouldAuthenticate(userEmail)) {
-                final UserDetails userDetails = _getUserDetails(userEmail);
+            final String emailEmp = jwtService.extractUsername(jwt);
+            if (_shouldAuthenticate(emailEmp)) {
+                final UserDetails userDetails = _getUserDetails(emailEmp);
                 if (_isTokenValid(jwt, userDetails) && _isTokenPersisted(jwt)) {
                     _setAuthenticationToken(request, userDetails);
                 }
@@ -68,12 +66,12 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         return jwt != null;
     }
 
-    private boolean _shouldAuthenticate(String userEmail) {
-        return userEmail != null && SecurityContextHolder.getContext().getAuthentication() == null;
+    private boolean _shouldAuthenticate(String emailEmp) {
+        return emailEmp != null && SecurityContextHolder.getContext().getAuthentication() == null;
     }
 
-    private UserDetails _getUserDetails(String userEmail) {
-        return userDetailsService.loadUserByUsername(userEmail);
+    private UserDetails _getUserDetails(String emailEmp) {
+        return userDetailsService.loadUserByUsername(emailEmp);
     }
 
     private boolean _isTokenValid(String jwt, UserDetails userDetails) {

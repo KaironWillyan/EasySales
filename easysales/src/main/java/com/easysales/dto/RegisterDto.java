@@ -1,4 +1,6 @@
-package com.easysales.Auth.dto;
+package com.easysales.dto;
+
+import com.easysales.constants.Role;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,7 +11,9 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class CredentialsDto {
-    String senhaEmp;
+public class RegisterDto {
+    private String nomeEmp;
     private String emailEmp;
+    private String sennhaEmp;
+    private Role role;
 }

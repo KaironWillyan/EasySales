@@ -8,9 +8,7 @@ import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import com.easysales.Auth.entities.Token;
 import com.easysales.constants.Role;
-import com.easysales.entities.Estoque;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.Collection;
@@ -41,7 +39,7 @@ public class Empresa implements UserDetails    {
     @Enumerated(EnumType.STRING)
     private Role role;
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "empresa")
     private List<Token> tokens;
 
     @Override

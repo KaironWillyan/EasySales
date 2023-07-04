@@ -1,14 +1,14 @@
-package com.easysales.Auth.usecases;
+package com.easysales.Service;
 
-import com.easysales.Auth.Repositorie.AccountRepository;
-import com.easysales.Auth.Repositorie.TokenRepository;
 import com.easysales.Auth.core.security.JwtService;
-import com.easysales.Auth.dto.AuthenticationResponseDto;
-import com.easysales.Auth.dto.CredentialsDto;
-import com.easysales.Auth.dto.RegisterDto;
-import com.easysales.Auth.entities.Token;
+import com.easysales.Repositories.AccountRepository;
+import com.easysales.Repositories.TokenRepository;
 import com.easysales.constants.TokenType;
+import com.easysales.dto.AuthenticationResponseDto;
+import com.easysales.dto.CredentialsDto;
+import com.easysales.dto.RegisterDto;
 import com.easysales.entities.Empresa;
+import com.easysales.entities.Token;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -54,7 +54,7 @@ public class AccountUsecase {
                         request.getSenhaEmp()
                 )
         );
-        var user = repository.findByEmail(request.getEmailEmp())
+        var user = repository.findByEmailEmp(request.getEmailEmp())
                 .orElseThrow();
         var jwtToken = jwtService.generateToken(user);
         var refreshToken = jwtService.generateRefreshToken(user);
@@ -66,9 +66,9 @@ public class AccountUsecase {
                 .build();
     }
 
-    private void saveUserToken(Empresa user, String jwtToken) {
+    private void saveUserToken(Empresa empresa, String jwtToken) {
         var token = Token.builder()
-                .user(user)
+                .empresa(empresa)
                 .token(jwtToken)
                 .tokenType(TokenType.BEARER)
                 .expired(false)
@@ -101,7 +101,7 @@ public class AccountUsecase {
         refreshToken = authHeader.substring(7);
         userEmail = jwtService.extractUsername(refreshToken);
         if (userEmail != null) {
-            var user = this.repository.findByEmail(userEmail)
+            var user = this.repository.findByEmailEmp(userEmail)
                     .orElseThrow();
             if (jwtService.isTokenValid(refreshToken, user)) {
                 var accessToken = jwtService.generateToken(user);

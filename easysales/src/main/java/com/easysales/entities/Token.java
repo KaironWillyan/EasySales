@@ -1,7 +1,6 @@
-package com.easysales.Auth.entities;
+package com.easysales.entities;
 
 import com.easysales.constants.TokenType;
-import com.easysales.entities.Empresa;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -31,6 +30,6 @@ public class Token {
     public boolean expired;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id")
-    public Empresa user;
+    @JoinColumn(name = "empresa")
+    public Empresa empresa;
 }
