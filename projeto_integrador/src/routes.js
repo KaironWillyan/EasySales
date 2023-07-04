@@ -38,7 +38,6 @@ function RoutesApp(){
 
     return(
         <>
-            {!isLoginPage && !isCadastrarEmpresa && <Header />}
             <Routes>
                 <Route path="/" element={<LoginPage />} /> 
                 <Route path="/cadastroEmpresa" element={ <Cadastroempresa/> }/> 

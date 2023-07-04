@@ -4,7 +4,7 @@ import { FaBars, FaTimes } from "react-icons/fa";
 import es from "./es.ico"
   import './header.css'
 
-function Navbar() {
+export function Header() {
 	const navRef = useRef();
 
 	const showNavbar = () => {
@@ -42,4 +42,3 @@ function Navbar() {
 	);
 }
 
-export default Navbar;  

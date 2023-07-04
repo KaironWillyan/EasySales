@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './cadastroP.css';
+// import api from '../../../service/api';
 
 /* const CadastroProduto = () => {
   const [produtos, setProdutos] = useState([]);
@@ -157,11 +158,6 @@ export default CadastroProduto; */
 export default App;
  */
 
-
-
-import axios from 'axios';
-
-
 function App() {
   const [products, setProducts] = useState([]);
   const [name, setName] = useState('');
@@ -196,15 +192,15 @@ function App() {
   };
 
   const handleCadastrar = () => {
-    axios.post('http://example.com/endpoint', products)
-      .then(response => {
-        console.log('Produtos enviados com sucesso!', response);
-        // Realize outras ações de acordo com a resposta do servidor
-      })
-      .catch(error => {
-        console.error('Erro ao enviar produtos:', error);
-        // Lide com o erro de acordo com as necessidades do seu aplicativo
-      });
+    // api.post('http://example.com/endpoint', products)
+    //   .then(response => {
+    //     console.log('Produtos enviados com sucesso!', response);
+    //     // Realize outras ações de acordo com a resposta do servidor
+    //   })
+    //   .catch(error => {
+    //     console.error('Erro ao enviar produtos:', error);
+    //     // Lide com o erro de acordo com as necessidades do seu aplicativo
+    //   });
   };
 
   return (
