@@ -1,0 +1,39 @@
+.blue {
+  background-color: #1ba3d9;
+  color: rgb(0, 66, 124);
+}
+
+.orange {
+  background-color: rgb(243, 228, 23);
+  color: rgb(124, 73, 0);
+}
+
+.red {
+  color: rgb(124, 0, 56);
+  background-color: #F23558;
+}
+
+.containerS {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.containerS div {
+  
+  margin: 5px;
+  padding: 20px;
+  width: calc(33.33% - 10px); /* 20% para exibir até 5 blocos por linha */
+  height: auto;
+  border-radius: 10px;
+  text-align: center;
+  border: none;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.8);  
+}
+
+
+.containeresp{
+padding-top: 10%;
+}

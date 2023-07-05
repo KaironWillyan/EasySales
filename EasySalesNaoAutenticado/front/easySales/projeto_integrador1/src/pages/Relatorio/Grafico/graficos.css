@@ -1,0 +1,92 @@
+.container2{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+
+.containerR1 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.grafico {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5%;
+  height: 500px;
+  margin-left: 1%;
+}
+
+.botao-voltar {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  background-color: rgb(35, 138, 208);
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+}
+
+.tags {
+  display: flex;
+  justify-content: flex-end; /* Alinha as tags à direita */
+  align-items: flex-start;
+  background-color: lightgray;
+  width: 40%;
+  height: auto;
+  margin-left: 10%;
+  flex-direction: column;
+  border-radius: 30px;
+}
+
+.tags p {
+  margin: 20px;
+  text-align: left; /* Alinha o texto à direita */
+  color: rgb(49, 47, 47);
+}
+
+@media screen and (max-width: 1048px) {
+  .containerR1 {
+    flex-direction: column;
+  }
+
+  .tags {
+    margin-top: 8%;
+    margin-left: 0;
+    width: 80%;
+    font-size: smaller;
+  }
+}
+
+.tagsp {
+  width: 80%;
+  margin: 2px;
+}
+
+
+.button-container3 {
+  display: flex;
+  justify-content:right;
+  align-items: center;
+  margin-top: 10%;
+
+}
+
+.button-container3 button {
+  border-radius: 20px;
+  padding: 10px 20px;
+  background: #1DB4F2;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.button-container3 :hover {
+  background:#1793c4;
+ 
+}
