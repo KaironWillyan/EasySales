@@ -1,0 +1,12 @@
+version: "3.9"
+services:
+  database:
+    image: postgres
+    environment:
+      - POSTGRES_USER=easysales
+      - POSTGRES_PASSWORD=123123
+      - POSTGRES_DATABASE=easysales
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./data:/var/lib/postgresql/data
