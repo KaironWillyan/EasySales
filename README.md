@@ -1,70 +1,70 @@
-# Tema Principal:
-### **Nome provisório do software:**
+# Getting Started with Create React App
 
-- easySales;
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-### **Área a que se aplica:** 
+## Available Scripts
 
-- Finanças;
+In the project directory, you can run:
 
-### **Principal problema que ele resolverá:**
+### `npm start`
 
-- Auxiliar na divisão dos gastos e lucros dos produtos, principalmente dos micro empresários e revendedores, dividindo por fontes, por exemplo: (natura, avon, mercantil, encomendas);
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-### **Link de apresentação**
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
 
-- Acesso ao [video](https://drive.google.com/file/d/1jE2CcQRxjEbf6farJhRxpiZgXIZAd7Dz/view?usp=drivesdk) (Aprensetação dos requisitos funcionais)
-- Acesso ao [video](https://drive.google.com/file/d/18riciWy7ymPHTP0FXxVv_eEqU2gpZUct/view?usp=sharing) (Aprensetação do Backlog)
+### `npm test`
 
-#### **wireframes**
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-- Acesso ao link do [figma](https://www.figma.com/file/zIyv17Txs6Fmu2BptRmIg5/Untitled?node-id=0%3A1&t=uFioURj3NFIN6vU1-1) (Apresentação do protótipo)
-- Acesso ao link do [video] (https://drive.google.com/drive/folders/1sCTtUNXcYbgLYIymwKPMIekUJSgqxEGO) (apresentação em vídeo do protótipo)
+### `npm run build`
 
-### **Funcionalidades:**
-#### **Objetivo**
-- O Programa EasySales foi desenvolvido para auxiliar pequenos revendedores a gerenciarem suas vendas de forma eficiente. Com este sistema, é possível obter uma melhor organização dos gastos ao comprar novos produtos e controlar as transações comerciais com os clientes. O software é capaz de calcular o gasto mensal com as compras do vendedor e gerenciar o estoque, permitindo a visualização do saldo atual de cada item.
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-#### **Os requisitos funcionais do sistema são:**
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-- CRUD Vendas: o sistema deve permitir o registro e consulta de todas as vendas realizadas pelos vendedores. As operações de criação, leitura, atualização e exclusão de informações sobre vendas devem ser disponibilizadas.
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-- CRUD Fornecedor: o sistema deve permitir o registro e consulta de cada fornecedor dos produtos comercializados pelos vendedores. As operações de criação, leitura, atualização e exclusão de informações sobre fornecedores devem ser disponibilizadas.
+### `npm run eject`
 
-- CRUD Produto: o sistema deve permitir o registro e consulta do tipo de cada produto que será vendido pelos vendedores. As operações de criação, leitura, atualização e exclusão de informações sobre produtos devem ser disponibilizadas.
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-- CRUD Cliente: o sistema deve permitir o registro e consulta de cada cliente dos vendedores. As operações de criação, leitura, atualização e exclusão de informações sobre clientes devem ser disponibilizadas.
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-- Relatório dos produtos: o sistema deve gerar um relatório com o status dos produtos, informando se estão em falta, se há muita procura, entre outras informações relevantes para o gerenciamento do estoque.
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-- Relatório das vendas: o sistema deve gerar um relatório com o status das vendas, informando se estão pendentes ou finalizadas com sucesso. Essas informações são importantes para o acompanhamento do desempenho do negócio.
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-- Funcionalidade de Alerta: o sistema deve possuir uma funcionalidade de alerta que envia e-mails para os clientes informando sobre seu status, como lembretes de pagamento, promoções, entre outras informações relevantes.
+## Learn More
 
-- Finanças: o sistema deve permitir o controle das contas e do orçamento, facilitando a gestão financeira do negócio. As informações sobre gastos, receitas e lucros devem estar disponíveis de forma clara e objetiva.
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-# Tema secundário:
-### **Nome provisório do software:**
+To learn React, check out the [React documentation](https://reactjs.org/).
 
-- Guichê virtual;
+### Code Splitting
 
-### **Área a que se aplica:**
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-- Controle de vendas;
+### Analyzing the Bundle Size
 
-### **Principal problema que ele resolverá:**
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-- Plataforma para organização e vendas online de guichês ou lotes de um determinado lugar;
+### Making a Progressive Web App
 
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-## Membros: 
-- Kairon Willyan
-- João de Deus 
-- Maria Vitória
+### Advanced Configuration
 
-## Ferramenta de gerenciamento de projeto:
-- Jira;
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-Link para acessar o kanban do projeto [easySales](https://easysales.atlassian.net/jira/software/projects/EAS/boards/1)
+### Deployment
 
-Link para acessar o [Backlog](https://drive.google.com/file/d/1aLGfeUBPlwT__gFFsKMCOCP-SkoJwOAr/view?usp=sharing) do projeto EasySales
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+
+### `npm run build` fails to minify
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
