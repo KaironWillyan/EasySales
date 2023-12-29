@@ -27,7 +27,7 @@ public class FornecedorService {
 
     public Fornecedor updateFornecedor(Integer id, Fornecedor fornecedor) {
         if (fornecedorRepository.existsById(id)) {
-            fornecedor.setIdFn(id);
+            fornecedor.setId(id);
             return fornecedorRepository.save(fornecedor);
         }
         return null;

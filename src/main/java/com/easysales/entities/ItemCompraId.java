@@ -4,40 +4,16 @@ import java.io.Serializable;
 import java.util.Objects;
 
 import jakarta.persistence.Embeddable;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 
-@Embeddable
+@Embeddable @Data @AllArgsConstructor @NoArgsConstructor @Builder
 public class ItemCompraId implements Serializable {
-        private int compraId;
+    private int compraId;
     private int estoqueId;
-
-    public ItemCompraId() {
-    }
-
-    public ItemCompraId(int compraId, int estoqueId) {
-        this.compraId = compraId;
-        this.estoqueId = estoqueId;
-    }
-
-    // Getters e Setters
-
-    public int getCompraId() {
-        return compraId;
-    }
-
-    public void setCompraId(int compraId) {
-        this.compraId = compraId;
-    }
-
-    public int getEstoqueId() {
-        return estoqueId;
-    }
-
-    public void setEstoqueId(int estoqueId) {
-        this.estoqueId = estoqueId;
-    }
-
-    // Equals e HashCode
 
     @Override
     public boolean equals(Object o) {

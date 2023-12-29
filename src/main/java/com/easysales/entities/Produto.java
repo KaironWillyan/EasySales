@@ -10,14 +10,16 @@ import java.lang.Integer;
 
 @Entity
 @NoArgsConstructor
+@AllArgsConstructor
 @Data
+@Builder
 public class Produto {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer idProd;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
 
     @Column(nullable = false)
-    private String nomeProduto;
+    private String nome;
 
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     @OneToMany(mappedBy = "produto")

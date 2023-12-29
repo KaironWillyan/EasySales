@@ -27,7 +27,7 @@ public class ClienteService {
 
     public Cliente updateCliente(Integer id, Cliente cliente) {
         if (clienteRepository.existsById(id)) {
-            cliente.setIdCli(id);
+            cliente.setId(id);
             return clienteRepository.save(cliente);
         }
         return null;

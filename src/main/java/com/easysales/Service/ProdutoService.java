@@ -27,7 +27,7 @@ public class ProdutoService {
 
     public Produto updateProduto(Integer id, Produto produto) {
         if (produtoRepository.existsById(id)) {
-            produto.setIdProd(id);
+            produto.setId(id);
             return produtoRepository.save(produto);
         }
         return null;

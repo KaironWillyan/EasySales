@@ -1,24 +1,29 @@
-        package com.easysales.entities;
+package com.easysales.entities;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.List;
-import java.lang.Integer;
 
 @Entity
-@NoArgsConstructor
-@AllArgsConstructor
-@Data
-@Builder
-public class Cliente {
+@Data @AllArgsConstructor @NoArgsConstructor @Builder
+public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(nullable = false)
+    @Column(name = "nomeEmp", nullable = false)
     private String nome;
+
+    @Column(name = "emailEmp", nullable = false, unique = true)
+    private String email;
+
+    @Column(name = "senhaEmp", nullable = false)
+    private String senha;
 
     @Column(nullable = false, unique = true)
     private String cpf;
@@ -38,13 +43,7 @@ public class Cliente {
     @Column(nullable = false)
     private String cidade;
 
-    @Column(name = "email", nullable = false)
-    private String email;
-    
-    @Column(name = "telefone", nullable = false)
-    private String telefone;
-
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)
-    @OneToMany(mappedBy = "cliente")
-    private List<Venda> vendas;
+    @OneToMany(mappedBy = "usuario")
+    private List<Empresa> empresas;
 }

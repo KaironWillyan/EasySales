@@ -1,5 +1,44 @@
-Cadastrar Cliente
+Cadastrar Empresa
 ADM:
+ 1- Cadastrar Empresa
+ Fluxo principal:
+    + Pré-condições: O usuário não possui login;
+      - O usuário clica em cadastrar;
+      - O usuário insere os seus dados para efetuar o cadastro, tais como:
+        .Nome da loja
+        .Nome completo do ADM da loja
+        .CPF/CNPJ
+        .E-mail
+        .Senha
+        .Confirma a senha
+      - O sistema verifica se aquele usuário existe;
+      - O sistema verifica se os dados foram informados com a sintaxe correta;
+      - O sistema valida os dados
+      - O sistema salva os dados do adm no Banco de Dados;
+      - O usuário passa a ter login permitido;
+    + Pré-condições: O ADM possui login;
+      - O usuário digita o sue email e senha;
+      - O sistema verifica se aquele usuário existe;
+      - O usuário entra na sua conta.
+
+   Fluxo alternativo:
+    + O sistema verifica que o usuário já é cadastrado:
+      - O sistema exibe uma mensagem de erro e não permite que ele seja cadastrado novamente;
+    + O usuário cancela o cadastro:
+      - O sistema cancela o cadastro do cliente no banco de dados e retorna a tela anterior;
+   Fluxo alternativo:
+    + O sistema verifica que os dados foram inseridos erroneamente:
+      - O sistema exibe uma mensagem de erro e não permite o cadastro do usuário;
+      - O ADM verifica os dados digitados e coloca da forma correta;
+      - O sitema verifica novamente se os dados foram inseridos corretamente;
+      - O sistema valida os dados;
+      - O usuário aperta no botão de cadastrar;
+      - O sistema salva os dados do usuário no Banco de Dados;
+      - O usuário passa a ter login permitido;
+
+
+------------- Cliente -------------------
+
  1- Cadastrar Cliente
 Fluxo principal:
     + Pré-condições: O ADM deve estar autenticado no sistema e na tela de cadastro de clientes;
@@ -7,11 +46,11 @@ Fluxo principal:
       - O sistema verifica se aquele usuário existe;
       - O sistema verifica se os dados foram informados com a sintaxe correta:
         .cpf
+        .Ramal
         .nome
         .rua
         .bairro
         .num
-        .logradouro
         .cep
         .cidade
       - O sistema valida os dados
@@ -25,7 +64,7 @@ Fluxo alternativo:
     + ADM cancela o cadastro:
       - O sistema cancela o cadastro do cliente no banco de dados e retorna a tela anterior;
 
-Fluxo alternativo: 
+Fluxo alternativo:
     + O sistema verifica que os dados foram inseridos erroneamente:
       - O sistema exibe uma mensagem de erro e não permite o cadastro do cliente;
       - O ADM verifica os dados digitados e coloca da forma correta;
@@ -34,3 +73,229 @@ Fluxo alternativo:
       - O ADM aperta no botão de cadastrar o cliente;
       - O sistema salva os dados do cliente no Banco de Dados;
       - O cliente passa a ficar visível no campo de clientes;
+
+2- Atualizar Cliente
+  Fluxo principal:
+    + Pré-condições: O ADM deve estar autenticado no sistema e na tela de edição dos dados do clientes;
+      - O ADM escolhe um cliente para editar;
+      - O ADM edita as informações desejáveis;
+      - O sistema verifica quais dos dados foram editados:
+        .cpf
+        .nome
+        .rua
+        .bairro
+        .num
+        .logradouro
+        .cep
+        .cidade
+      - O sistema valida se os dados foram escritos da forma correta;
+      - O ADM aperta no botão de editar os dados do cliente;
+      - O sistema atualiza os dados do cliente no Banco de Dados;
+
+Fluxo alternativo:
+    + O sistema verifica que o cliente já é cadastrado:
+      - O sistema exibe uma mensagem de erro e fala que o cliente não existe;
+    + ADM cancela a atualização:
+      - O sistema cancela a atualização do cliente no banco de dados e retorna a tela anterior;
+
+Fluxo alternativo:
+    + O sistema verifica que os dados foram inseridos erroneamente:
+      - O sistema exibe uma mensagem de erro e não permite o ADM editar os dados do cliente;
+      - O ADM verifica os dados digitados e coloca da forma correta;
+      - O sitema verifica novamente se os dados foram inseridos corretamente;
+      - O sistema valida os dados;
+      - O ADM aperta no botão de salvar os novos dados do cliente;
+      - O sistema atualiza os dados do cliente no Banco de Dados;
+
+------------- Produto -------------------
+
+Cadastrar Produto
+ADM:
+ 1- Cadastrar Produto
+Fluxo principal:
+    + Pré-condições: O ADM deve estar autenticado no sistema e na tela de cadastro de Produtos;
+      - O ADM insere os dados dos Produtos nos campos de texto;
+      - O sistema verifica se aquele produto já existe;
+      - O sistema verifica se os dados foram informados com a sintaxe correta:
+        .Nome do produto
+        .Nome do fornecedor
+        .Quantidade adquirida
+        .ID do produto
+      - O sistema valida os dados;
+      - O ADM aperta no botão de cadastrar o Produto;
+      - O sistema salva os dados do Produto no Banco de Dados;
+      - O Produto passa a ficar visível no campo de Produtos;
+
+Fluxo alternativo:
+    + O sistema verifica que o Produto já é cadastrado:
+      - O sistema exibe uma mensagem de erro e não permite que o Produto seja cadastrado novamente;
+    + ADM cancela o cadastro:
+      - O sistema cancela o cadastro do Produto no banco de dados e retorna a tela anterior;
+
+Fluxo alternativo:
+    + O sistema verifica que os dados foram inseridos erroneamente:
+      - O sistema exibe uma mensagem de erro e não permite o cadastro do Produto;
+      - O ADM verifica os dados digitados e coloca da forma correta;
+      - O sitema verifica novamente se os dados foram inseridos corretamente;
+      - O sistema valida os dados;
+      - O ADM aperta no botão de cadastrar o Produto;
+      - O sistema salva os dados do Produto no Banco de Dados;
+      - O Produto passa a ficar visível no campo de Produtos;
+
+2- Atualizar Produto
+  Fluxo principal:
+    + Pré-condições: O ADM deve estar autenticado no sistema e na tela de edição dos dados do Produtos;
+      - O ADM insere os dados dos Produtos nos campos de texto;
+      - O ADM escolhe o produto a ser editado;
+      - O sistema verifica quais dos dados foram editados:
+        .Nome do produto
+        .Nome do fornecedor
+        .Quantidade adquirida
+        .ID do produto
+      - O sistema valida os dados
+      - O ADM salva os dados do Produto;
+      - O sistema atualiza os dados do Produto no Banco de Dados;
+
+Fluxo alternativo:
+    + ADM cancela a atualização:
+      - O sistema cancela a atualização do Produto no banco de dados e retorna a tela anterior;
+
+Fluxo alternativo:
+    + O sistema verifica que os dados foram inseridos erroneamente:
+      - O sistema exibe uma mensagem de erro e não permite o ADM editar os dados do Produto;
+      - O ADM verifica os dados digitados e coloca da forma correta;
+      - O sitema verifica novamente se os dados foram inseridos corretamente;
+      - O sistema valida os dados;
+      - O ADM salva os dados do Produto;
+      - O sistema atualiza os dados do Produto no Banco de Dados;
+
+ --------------------- Vendas ----------------------
+
+ Cadastrar Venda
+ADM:
+ 1- Cadastrar Venda
+Fluxo principal:
+    + Pré-condições: O ADM deve estar autenticado no sistema e na tela de cadastro de Vendas;
+      - O ADM insere os dados das Vendas nos campos de texto:
+        .Nome do Cliente;
+        .CPF;
+        .Nome do produto;
+        .Valor do produto;
+        .Nome do fornecedor;
+      - O sistema verifica se aquela venda existe;
+      - O sistema verifica se os dados foram informados com a sintaxe correta:
+      - O sistema valida os dados
+      - O ADM aperta no botão de cadastrar a Venda;
+      - O sistema salva os dados da Venda no Banco de Dados;
+      - A Venda passa a ficar visível no campo de Vendas;
+
+Fluxo alternativo:
+    + O sistema verifica que o Venda já é cadastrada:
+      - O sistema exibe uma mensagem de erro e não permite que o Venda seja cadastrado novamente;
+    + ADM cancela o cadastro:
+      - O sistema cancela o cadastro da Venda no banco de dados e retorna a tela anterior;
+
+Fluxo alternativo:
+    + O sistema verifica que os dados foram inseridos erroneamente:
+      - O sistema exibe uma mensagem de erro e não permite o cadastro da Venda;
+      - O ADM verifica os dados digitados e coloca da forma correta;
+      - O sitema verifica novamente se os dados foram inseridos corretamente;
+      - O sistema valida os dados;
+      - O ADM salva a Venda;
+      - O sistema salva os dados do Venda no Banco de Dados;
+      - O Venda passa a ficar visível no campo de Vendas;
+
+2- Atualizar Venda
+  Fluxo principal:
+    + Pré-condições: O ADM deve estar autenticado no sistema e na tela de edição dos dados das Vendas;
+      - O ADM insere os dados das Vendas nos campos de texto;
+      - O sistema verifica quais dos dados serão editados:
+      - O sistema valida os dados
+      - O ADM salva os dados do Venda;
+      - O sistema atualiza os dados da Venda no Banco de Dados;
+
+Fluxo alternativo:
+    + ADM cancela o processo:
+      - O sistema cancela a atualização da Venda no banco de dados e retorna a tela anterior;
+
+Fluxo alternativo:
+    + O sistema verifica que os dados foram inseridos erroneamente:
+      - O sistema exibe uma mensagem de erro e não permite o ADM editar os dados do Venda;
+      - O ADM verifica os dados digitados e coloca da forma correta;
+      - O sitema verifica novamente se os dados foram inseridos corretamente;
+      - O sistema valida os dados;
+      - O ADM aperta no botão de editar os dados do Venda;
+      - O sistema atualiza os dados do Venda no Banco de Dados;
+
+---------------------- Fornecedor -----------------------
+
+Cadastrar Fornecedor
+ADM:
+ 1- Cadastrar Fornecedor
+Fluxo principal:
+    + Pré-condições: O ADM deve estar autenticado no sistema e na tela de cadastro de Fornecedors;
+      - O ADM insere os dados dos Fornecedors nos campos de texto;
+      - O sistema verifica se aquele fornecedor existe;
+      - O sistema verifica se os dados foram informados com a sintaxe correta:
+        .Nome do forncedor;
+        .Endereço;
+        .E-mail;
+        .Telefone.
+      - O sistema valida os dados;
+      - O ADM salva o Fornecedor;
+      - O sistema salva os dados do Fornecedor no Banco de Dados;
+      - O Fornecedor passa a ficar visível no campo de Fornecedores;
+
+Fluxo alternativo:
+    + O sistema verifica que o Fornecedor já é cadastrado:
+      - O sistema exibe uma mensagem de erro e não permite que o Fornecedor seja cadastrado novamente;
+    + ADM cancela o cadastro:
+      - O sistema cancela o cadastro do Fornecedor no banco de dados e retorna a tela anterior;
+
+Fluxo alternativo:
+    + O sistema verifica que os dados foram inseridos erroneamente:
+      - O sistema exibe uma mensagem de erro e não permite o cadastro do Fornecedor;
+      - O ADM verifica os dados digitados e coloca da forma correta;
+      - O sitema verifica novamente se os dados foram inseridos corretamente;
+      - O sistema valida os dados;
+      - O ADM aperta no botão de cadastrar o Fornecedor;
+      - O sistema salva os dados do Fornecedor no Banco de Dados;
+      - O Fornecedor passa a ficar visível no campo de Fornecedores;
+
+2- Atualizar Fornecedor
+  Fluxo principal:
+    + Pré-condições: O ADM deve estar autenticado no sistema e na tela de edição dos dados do Fornecedor;
+      - O ADM insere os dados dos Fornecedores nos campos de texto;
+      - O sistema verifica se aquele usuário existe;
+      - O sistema verifica quais dos dados serão editados;
+      - O sistema valida os dados
+      - O ADM salva os dados do Fornecedor;
+      - O sistema atualiza os dados do Fornecedor no Banco de Dados;
+
+Fluxo alternativo:
+    + ADM cancela a atualização:
+      - O sistema cancela a atualização do Fornecedor no banco de dados e retorna a tela anterior;
+
+Fluxo alternativo:
+    + O sistema verifica que os dados foram inseridos erroneamente:
+      - O sistema exibe uma mensagem de erro e não permite o ADM editar os dados do Fornecedor;
+      - O ADM verifica os dados digitados e coloca da forma correta;
+      - O sitema verifica novamente se os dados foram inseridos corretamente;
+      - O sistema valida os dados;
+      - O ADM salva os dados do Fornecedor;
+      - O sistema atualiza os dados do Fornecedor no Banco de Dados;
+
+------------------ Relatório -----------------
+
+Visualizar relatório
+ADM:
+ 1- Visualizar relatórios
+Fluxo principal:
+    + Pré-condições: O ADM deve estar autenticado no sistema e na tela de relatórios;
+    + O ADM seleciona o tipo de relatório que deseja ver:
+      - Vendas;
+      - Produtos;
+      - Clientes;
+    - O Sistema mostrará um relatório condizente com o escolhido;
+      - O relatório irá conter um gráfico com os produtos mais e menos vendidos, todas as vendas no mês, ou um relatório de todos os clientes (devedores ou não);
+

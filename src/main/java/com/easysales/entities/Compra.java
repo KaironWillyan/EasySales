@@ -10,15 +10,17 @@ import java.lang.Integer;
 
 @Entity
 @NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @Data
 public class Compra {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer idCompra;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
 
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     @OneToMany(mappedBy = "compra")
-    private List<ItemCompra> itemCompra;
+    private List<ItemCompra> item;
 
     @ManyToOne
     @JoinColumn(name = "fornecedor_id")
@@ -26,8 +28,8 @@ public class Compra {
 
     @Column(nullable = false)
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm")
-    private Timestamp dtCompra;
+    private Timestamp dt;
 
     @Column(nullable = false)
-    private Float valorTotalCompra;
+    private Float valorTotal;
 }

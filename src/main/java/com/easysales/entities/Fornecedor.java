@@ -10,39 +10,40 @@ import java.lang.Integer;
 @Entity
 @NoArgsConstructor
 @Data
+@AllArgsConstructor
+@Builder
 public class Fornecedor {
 
    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "idFn")
-    private int idFn;
+    private int id;
     
-    @Column(name = "nomeFn", nullable = false)
-    private String nomeFn;
+    @Column(name = "nome", nullable = false)
+    private String nome;
     
-    @Column(name = "bairroFn", nullable = false)
-    private String bairroFn;
+    @Column(name = "bairro", nullable = false)
+    private String bairro;
     
-    @Column(name = "numFn", nullable = false)
-    private String numFn;
+    @Column(name = "num", nullable = false)
+    private String num;
     
-    @Column(name = "logradouroFn", nullable = false)
-    private String logradouroFn;
+    @Column(name = "logradouro", nullable = false)
+    private String logradouro;
     
-    @Column(name = "cepFn", nullable = false)
-    private String cepFn;
+    @Column(name = "cep", nullable = false)
+    private String cep;
     
-    @Column(name = "cidadeFn", nullable = false)
-    private String cidadeFn;
+    @Column(name = "cidade", nullable = false)
+    private String cidade;
     
-    @Column(name = "telefoneFn", nullable = false)
-    private String telefoneFn;
+    @Column(name = "telefone", nullable = false)
+    private String telefone;
     
-    @Column(name = "cpfFn", nullable = false)
-    private String cpfFn;
+    @Column(name = "cpf", nullable = false)
+    private String cpf;
     
-    @Column(name = "emailFn", nullable = false)
-    private String emailFn;
+    @Column(name = "email", nullable = false)
+    private String email;
 
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     @OneToMany(mappedBy = "fornecedor")

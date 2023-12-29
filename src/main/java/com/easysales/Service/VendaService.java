@@ -27,7 +27,7 @@ public class VendaService {
 
     public Venda updateVenda(Integer id, Venda venda) {
         if (vendaRepository.existsById(id)) {
-            venda.setIdVenda(id);
+            venda.setId(id);
             return vendaRepository.save(venda);
         }
         return null;

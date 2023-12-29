@@ -10,10 +10,12 @@ import java.lang.Integer;
 @Entity
 @NoArgsConstructor
 @Data
+@AllArgsConstructor
+@Builder
 public class Estoque {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer idEstoque;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
 
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     @OneToMany(mappedBy = "estoque")
@@ -24,16 +26,16 @@ public class Estoque {
     private List<ItemCompra> itemCompra;
 
     @ManyToOne
-    @JoinColumn(name = "empId", referencedColumnName = "idEmp", nullable = false)
+    @JoinColumn(name = "empId", referencedColumnName = "id", nullable = false)
     private Empresa empresa;
     
     @ManyToOne
-    @JoinColumn(name = "prodId", referencedColumnName = "idProd", nullable = false)
+    @JoinColumn(name = "prodId", referencedColumnName = "id", nullable = false)
     private Produto produto;
     
     @Column(name = "precoProd", nullable = false)
     private float precoProd;
     
-    @Column(name = "quantEstq", nullable = false)
-    private int quantEstq;
+    @Column(name = "quantEstoque", nullable = false)
+    private int quantidade;
 }

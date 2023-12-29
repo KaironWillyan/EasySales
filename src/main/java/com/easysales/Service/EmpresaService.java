@@ -2,6 +2,8 @@ package com.easysales.Service;
 
 import java.util.List;
 
+import com.easysales.Repositories.EstoqueRepository;
+import com.easysales.entities.Estoque;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,8 +12,10 @@ import com.easysales.entities.Empresa;
 
 @Service
 public class EmpresaService {
-     @Autowired
+    @Autowired
     private EmpresaRepository empresaRepository;
+     @Autowired
+     private EstoqueRepository estoqueRepository;
 
     public List<Empresa> getAllEmpresas() {
         return empresaRepository.findAll();
@@ -22,12 +26,16 @@ public class EmpresaService {
     }
 
     public Empresa createEmpresa(Empresa empresa) {
-        return empresaRepository.save(empresa);
+        empresaRepository.save(empresa);
+        Estoque estoque = Estoque.builder()
+                .empresa(empresa)
+                .build();
+        return empresa;
     }
 
     public Empresa updateEmpresa(Integer id, Empresa empresa) {
         if (empresaRepository.existsById(id)) {
-            empresa.setIdEmp(id);
+            empresa.setId(id);
             return empresaRepository.save(empresa);
         }
         return null;

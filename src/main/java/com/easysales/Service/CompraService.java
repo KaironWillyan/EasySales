@@ -27,7 +27,7 @@ public class CompraService {
 
     public Compra updateCompra(Integer id, Compra compra) {
         if (compraRepository.existsById(id)) {
-            compra.setIdCompra(id);
+            compra.setId(id);
             return compraRepository.save(compra);
         }
         return null;

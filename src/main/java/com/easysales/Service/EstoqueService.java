@@ -27,7 +27,7 @@ public class EstoqueService {
 
     public Estoque updateEstoque(Integer id, Estoque estoque) {
         if (estoqueRepository.existsById(id)) {
-            estoque.setIdEstoque(id);
+            estoque.setId(id);
             return estoqueRepository.save(estoque);
         }
         return null;

@@ -10,6 +10,8 @@ import java.lang.Integer;
 @Entity
 @NoArgsConstructor
 @Data
+@AllArgsConstructor
+@Builder
 public class ItemCompra {
     @EmbeddedId
     private ItemCompraId id;
@@ -27,9 +29,9 @@ public class ItemCompra {
     @Column(name = "qtdComprada", nullable = false)
     private int qtdComprada;
     
-    @Column(name = "valorTotalItemC", nullable = false)
-    private float valorTotalItemC;
+    @Column(name = "valorTotalItemCompra", nullable = false)
+    private float valorTotalItemCompra;
     
-    @Column(name = "precoProdC", nullable = false)
-    private float precoProdC;
+    @Column(name = "precoProdCompra", nullable = false)
+    private float precoProdCompra;
 }

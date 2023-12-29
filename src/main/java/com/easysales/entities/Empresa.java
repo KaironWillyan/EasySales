@@ -9,21 +9,25 @@ import java.lang.Integer;
 
 @Entity
 @NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @Data
 public class Empresa    {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer idEmp;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
     
-    @Column(name = "nomeEmp", nullable = false)
-    private String nomeEmp;
-    
-    @Column(name = "emailEmp", nullable = false)
-    private String emailEmp;
-    
-    @Column(name = "senhaEmp", nullable = false)
-    private String senhaEmp;
+    @Column(name = "nome", nullable = false)
+    private String nome;
+
+    @Column(name = "cpf_cnpj", nullable = false)
+    private  String cnpj;
+
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     @OneToMany(mappedBy = "empresa")
     private List<Estoque> estoques;
+
+    @ManyToOne
+    @JoinColumn(name = "usuarioId", referencedColumnName = "id", nullable = false)
+    private Usuario usuario;
 }

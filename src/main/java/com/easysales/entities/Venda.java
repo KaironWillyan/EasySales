@@ -15,23 +15,27 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
 @NoArgsConstructor
 @Data
+@AllArgsConstructor
+@Builder
 public class Venda {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer idVenda;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
 
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     @OneToMany(mappedBy = "venda")
     private List<ItemVenda> itemVenda;
 
      @ManyToOne
-    @JoinColumn(name = "idCli", referencedColumnName = "idCli", nullable = false)
+    @JoinColumn(name = "idCli", referencedColumnName = "id", nullable = false)
     private Cliente cliente;
     
     @Column(name = "valorTotalVenda", nullable = false)
