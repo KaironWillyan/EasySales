@@ -1,8 +1,9 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/easysales
-    username: easysales
-    password: 123123
+    url: jdbc:postgresql://dpg-cn2nkeq1hbls73bad4eg-a/easysales
+    #url:jdbc:postgres://easysales_db:Kshp1UelWPReZsELRoWTCS9594RAAE4H@dpg-cn2nkeq1hbls73bad4eg-a.oregon-postgres.render.com/easysales:
+    username: easysales_db
+    password: Kshp1UelWPReZsELRoWTCS9594RAAE4H
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
@@ -13,4 +14,3 @@ spring:
       hibernate:
         format_sql: true
       database: postgresql
-      database-platform: org.hibernate.dialect.PostgreSQLDialect
