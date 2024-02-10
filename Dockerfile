@@ -12,6 +12,6 @@ WORKDIR /app
 
 COPY --from=build /app/target/EasySalesApp.jar /app
 
-EXPOSE 8090
+EXPOSE 8080
 
 CMD ["java", "-jar", "EasySalesApp.jar"]
