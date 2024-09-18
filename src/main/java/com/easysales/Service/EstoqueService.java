@@ -17,7 +17,7 @@ public class EstoqueService {
         return estoqueRepository.findAll();
     }
 
-    public Estoque getEstoqueById(Integer id) {
+    public Estoque getEstoqueById(Long id) {
         return estoqueRepository.findById(id).orElse(null);
     }
 
@@ -25,7 +25,7 @@ public class EstoqueService {
         return estoqueRepository.save(estoque);
     }
 
-    public Estoque updateEstoque(Integer id, Estoque estoque) {
+    public Estoque updateEstoque(Long id, Estoque estoque) {
         if (estoqueRepository.existsById(id)) {
             estoque.setId(id);
             return estoqueRepository.save(estoque);
@@ -33,7 +33,7 @@ public class EstoqueService {
         return null;
     }
 
-    public void deleteEstoque(Integer id) {
+    public void deleteEstoque(Long id) {
         estoqueRepository.deleteById(id);
     }
 }

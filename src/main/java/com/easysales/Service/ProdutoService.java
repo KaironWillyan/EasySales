@@ -17,7 +17,7 @@ public class ProdutoService {
         return produtoRepository.findAll();
     }
 
-    public Produto getProdutoById(Integer id) {
+    public Produto getProdutoById(Long id) {
         return produtoRepository.findById(id).orElse(null);
     }
 
@@ -25,7 +25,7 @@ public class ProdutoService {
         return produtoRepository.save(produto);
     }
 
-    public Produto updateProduto(Integer id, Produto produto) {
+    public Produto updateProduto(Long id, Produto produto) {
         if (produtoRepository.existsById(id)) {
             produto.setId(id);
             return produtoRepository.save(produto);
@@ -33,7 +33,7 @@ public class ProdutoService {
         return null;
     }
 
-    public void deleteProduto(Integer id) {
+    public void deleteProduto(Long id) {
         produtoRepository.deleteById(id);
     }
 }

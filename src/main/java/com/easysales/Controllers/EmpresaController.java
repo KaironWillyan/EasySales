@@ -31,7 +31,7 @@ public class EmpresaController{
     }
 
     @GetMapping("/empresa/{id}")
-    public ResponseEntity<Empresa> GetEmpresaById(@PathVariable(value = "idEmpresa") Integer id){
+    public ResponseEntity<Empresa> GetEmpresaById(@PathVariable(value = "idEmpresa") Long id){
         Empresa empresa = empresaService.getEmpresaById(id);
         if(empresa != null){
             return new ResponseEntity<Empresa>(empresa, HttpStatus.OK);
@@ -47,7 +47,7 @@ public class EmpresaController{
     }
 
     @PutMapping("/empresa/{id}")
-    public ResponseEntity<Empresa> PutEmpresa(@PathVariable(value = "idEmpresa") Integer id, @Validated @RequestBody Empresa newEmpresa)
+    public ResponseEntity<Empresa> PutEmpresa(@PathVariable(value = "idEmpresa") Long id, @Validated @RequestBody Empresa newEmpresa)
     {
         Empresa updatedEmpresa = empresaService.updateEmpresa(id, newEmpresa);
         if(updatedEmpresa != null){
@@ -60,7 +60,7 @@ public class EmpresaController{
     }
 
     @DeleteMapping("/empresa/{id}")
-    public ResponseEntity<Empresa> DeleteEmpresa(@PathVariable(value = "idEmpresa") Integer id){
+    public ResponseEntity<Empresa> DeleteEmpresa(@PathVariable(value = "idEmpresa") Long id){
         empresaService.deleteEmpresa(id);
         throw new ResponseStatusException(
                 HttpStatus.NOT_FOUND, "empresa não encontrado."

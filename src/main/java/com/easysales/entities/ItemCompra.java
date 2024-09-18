@@ -27,11 +27,11 @@ public class ItemCompra {
     private Estoque estoque;
     
     @Column(name = "qtdComprada", nullable = false)
-    private int qtdComprada;
+    private Double qtdComprada;
     
     @Column(name = "valorTotalItemCompra", nullable = false)
-    private float valorTotalItemCompra;
+    private Double valorTotalItemCompra;
     
     @Column(name = "precoProdCompra", nullable = false)
-    private float precoProdCompra;
+    private Double precoProdCompra;
 }

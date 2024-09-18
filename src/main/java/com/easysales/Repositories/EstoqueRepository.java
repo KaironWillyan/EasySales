@@ -8,5 +8,5 @@ import org.springframework.stereotype.Repository;
 import java.util.UUID;
 @EnableJpaRepositories
 @Repository
-public interface EstoqueRepository extends JpaRepository<Estoque, Integer> {
+public interface EstoqueRepository extends JpaRepository<Estoque, Long> {
 }

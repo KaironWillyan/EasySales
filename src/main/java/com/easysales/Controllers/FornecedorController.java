@@ -31,7 +31,7 @@ public class FornecedorController{
     }
 
     @RequestMapping(value = "/fornecedor/{id}", method = RequestMethod.GET)
-    public ResponseEntity<Fornecedor> GetFornecedorById(@PathVariable Integer id){
+    public ResponseEntity<Fornecedor> GetFornecedorById(@PathVariable Long id){
         Fornecedor fornecedor = fornecedorService.getFornecedorById(id);
         if(fornecedor != null){
             return new ResponseEntity<Fornecedor>(fornecedor, HttpStatus.OK);
@@ -59,7 +59,7 @@ public class FornecedorController{
     }
 
     @PutMapping("/fornecedor/{id}")
-    public ResponseEntity<Fornecedor> PutFornecedor(@PathVariable(value = "idFn") Integer id, @Validated @RequestBody Fornecedor newFornecedor)
+    public ResponseEntity<Fornecedor> PutFornecedor(@PathVariable(value = "idFn") Long id, @Validated @RequestBody Fornecedor newFornecedor)
     {
       Fornecedor updatedFornecedor = fornecedorService.updateFornecedor(id, newFornecedor);
       if(updatedFornecedor != null){
@@ -71,7 +71,7 @@ public class FornecedorController{
     }
 
     @DeleteMapping("/fornecedor/{id}")
-    public ResponseEntity<Fornecedor> DeleteFornecedor(@PathVariable(value = "idFn") Integer id){
+    public ResponseEntity<Fornecedor> DeleteFornecedor(@PathVariable(value = "idFn") Long id){
      fornecedorService.deleteFornecedor(id);
         throw new ResponseStatusException(
                 HttpStatus.NOT_FOUND, "fornecedor não encontrado."

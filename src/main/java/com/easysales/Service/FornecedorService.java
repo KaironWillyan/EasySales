@@ -17,7 +17,7 @@ public class FornecedorService {
         return fornecedorRepository.findAll();
     }
 
-    public Fornecedor getFornecedorById(Integer id) {
+    public Fornecedor getFornecedorById(Long id) {
         return fornecedorRepository.findById(id).orElse(null);
     }
 
@@ -25,7 +25,7 @@ public class FornecedorService {
         return fornecedorRepository.save(fornecedor);
     }
 
-    public Fornecedor updateFornecedor(Integer id, Fornecedor fornecedor) {
+    public Fornecedor updateFornecedor(Long id, Fornecedor fornecedor) {
         if (fornecedorRepository.existsById(id)) {
             fornecedor.setId(id);
             return fornecedorRepository.save(fornecedor);
@@ -33,7 +33,7 @@ public class FornecedorService {
         return null;
     }
 
-    public void deleteFornecedor(Integer id) {
+    public void deleteFornecedor(Long id) {
         fornecedorRepository.deleteById(id);
     }
 }

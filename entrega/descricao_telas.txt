@@ -1,0 +1,86 @@
+entrar no app:
+   se possuir login --> 
+      se tiver mais de uma empresa --> ver uma lista com as empresas para ele poder esccolher em qual irá entrar;
+      se tiver só uma empresa --> entra direto na pagina inicial(explico logo abaixo);
+      se não tiver cadastrado uma empresa ainda --> cadastra empresa;
+   se não possuir login --> 
+      faz cadastro do usuario;
+      cadastra empresa;
+      
+Tela inicial -->
+   no topo da tela, o nome da empresa que se ele tiver mais de uma empresa e clicar, abre um dropdown com uma lista de empresas e ele pode trocar a visualização da empresa; 
+   menu com as opções: vendas, compras, fornecedores, relatórios, clientes;
+   
+Tela de vendas -->
+   opções: cadastrar vendas, historico de vendas,
+   cadastrar venda -->
+         uma tela de cadastro de venda;
+            vai colocar o produto vendido e quantidade;
+            selecionar o cliente( se ja for cadastrado);
+            cadastrar o cliente(se não tiver foi cadastrado antes);
+      ver vendas -->
+         mostra as vendas que já foram feitas. As vendas vão ter como título o nome do cliente e data em baixo e no canto o valor. A cor dos itens da lista vai depender do status da venda. À vista, parcelado ou se tá devendo;
+      
+   
+Tela de Clientes -->
+   opções: cadastrar cliente, ver clientes, etc
+      cadastrar cliente -->
+         uma tela de cadastro do cliente;
+      ver clientes -->
+         mostra os clientes em uma lista e uma bola no canto de cada lista, vermelha(cliente com atraso), amarela(cliente com parcelamento ativo) ou verde(cliente sem dívida pendente)(ou trocar para o item da lista ficar com essa cor);
+         se ele clicar no cliente vai mostrar nome completo, situação,  botão com histórico de compra do cliente e abaixo as informações, contato, endereço, etc;
+
+Tela de compra -->
+   opções: cadastrar compra, ver compras, etc
+      cadastrar compra -->
+         uma tela de cadastro da compra;
+      ver compras -->
+         mostra as compras que ele já cadastrou. Nessa tela, as compras vão ter como titulo o fornecedor que ele cadastrou da compra e em baixo a data, no canto vai ter o valor.
+         quando ele clicar em uma compra, mostra as listas de itens que foram comprados e os valores que ele cadastrou;
+         ter a opção dele filtrar por fornecedores, data ou valor;
+         
+
+Tela de Fornecedor -->
+   opções: cadastrar fornecedor, ver fornecedores, etc
+      cadastrar fornecedor -->
+         uma tela de cadastro do fornecedor;
+      ver fornecedores -->
+         mostra os fornecedores em uma lista;
+         se ele clicar no fornecedor vai mostrar o historico de compras que ele ja fez nesse fornecedor(pode fazer igual a tela de compras, usar o mesmo layout, a diferença é que quando ele for para essa tela, já vai com filtro predefinido);
+         ele tbm pode avaliar o fornecedor(coloca um simbolo de coração);
+         ao clicar na compra, mostrar os itens(igual a opção da tela de compra);
+         
+         
+Tela de Relatórios -->
+	Dar várias opções de relatório para o usuario;
+	relatorio de vendas:
+		vendas por periodo;
+		vendas por produto;
+		vendas por valor;
+		vendas por cliente;
+		vendas por produto de um fornecedor;
+		vendas por tipo de pagamento(parcelado ou à vista);
+	relatorio de compra:
+		commpras por periodo;
+		compras por produto;
+		compras por valor;
+		compras por fornecedor;
+	relatório de produtos:
+	 	produtos que mais saem;
+	 	produtos que menos saem;
+	 	produtos perto de vencer;
+	 	produtos mais caros ou baratos;
+	 	produtos que mais saem por fornecedor;
+	relatório de clientes:
+		clientes que mais compram;
+		clientes que compraram x vezes;
+		clientes com maiores compras;
+		clientes com menores compras;
+		clientes que compram parcelado;
+		clientes que compram à vista;
+	relatório de fornecedores:
+		fornecedores que mais foi comprado;
+		fornecedores que menos foi comprado;
+		fornecedores por avaliação;
+		
+		

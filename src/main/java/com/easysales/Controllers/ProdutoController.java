@@ -28,7 +28,7 @@ public class ProdutoController{
         return produtoService.getAllProdutos();
     }
     @GetMapping(value = "/produto/{id}")
-    public ResponseEntity<Produto> GetProdutoById(@PathVariable Integer id){
+    public ResponseEntity<Produto> GetProdutoById(@PathVariable Long id){
         Produto produto = produtoService.getProdutoById(id);
         if(produto != null){
             return new ResponseEntity<Produto>(produto, HttpStatus.OK);
@@ -44,7 +44,7 @@ public class ProdutoController{
     }
 
     @PutMapping("/produto/{id}")
-    public ResponseEntity<Produto> PutProduto(@PathVariable Integer id, @Validated @RequestBody Produto newProduto)
+    public ResponseEntity<Produto> PutProduto(@PathVariable Long id, @Validated @RequestBody Produto newProduto)
     {
         Produto updateProduto = produtoService.updateProduto(id, newProduto);
         if(updateProduto != null){
@@ -56,7 +56,7 @@ public class ProdutoController{
     }
 
     @DeleteMapping("/produto/{id}")
-    public ResponseEntity<Produto> DeleteProduto(@PathVariable  Integer id){
+    public ResponseEntity<Produto> DeleteProduto(@PathVariable  Long id){
         produtoService.deleteProduto((id));
 
         throw new ResponseStatusException(

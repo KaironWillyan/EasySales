@@ -15,7 +15,7 @@ import java.lang.Integer;
 public class Estoque {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
 
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     @OneToMany(mappedBy = "estoque")
@@ -34,8 +34,8 @@ public class Estoque {
     private Produto produto;
     
     @Column(name = "precoProd", nullable = false)
-    private float precoProd;
+    private Double precoProd;
     
     @Column(name = "quantEstoque", nullable = false)
-    private int quantidade;
+    private Long quantidade;
 }

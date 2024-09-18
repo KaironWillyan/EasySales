@@ -12,8 +12,8 @@ import lombok.NoArgsConstructor;
 
 @Embeddable @Data @AllArgsConstructor @NoArgsConstructor @Builder
 public class ItemVendaId implements Serializable{
-    private int vendaId;
-    private int estoqueId;
+    private Long vendaId;
+    private Long estoqueId;
 
 
     @Override
@@ -21,7 +21,7 @@ public class ItemVendaId implements Serializable{
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         ItemVendaId that = (ItemVendaId) o;
-        return vendaId == that.vendaId && estoqueId == that.estoqueId;
+        return vendaId.equals(that.vendaId) && Objects.equals(estoqueId, that.estoqueId);
     }
 
     @Override

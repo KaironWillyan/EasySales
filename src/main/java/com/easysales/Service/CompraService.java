@@ -17,7 +17,7 @@ public class CompraService {
         return compraRepository.findAll();
     }
 
-    public Compra getCompraById(Integer id) {
+    public Compra getCompraById(Long id) {
         return compraRepository.findById(id).orElse(null);
     }
 
@@ -25,7 +25,7 @@ public class CompraService {
         return compraRepository.save(compra);
     }
 
-    public Compra updateCompra(Integer id, Compra compra) {
+    public Compra updateCompra(Long id, Compra compra) {
         if (compraRepository.existsById(id)) {
             compra.setId(id);
             return compraRepository.save(compra);
@@ -33,7 +33,7 @@ public class CompraService {
         return null;
     }
 
-    public void deleteCompra(Integer id) {
+    public void deleteCompra(Long id) {
         compraRepository.deleteById(id);
     }
 }

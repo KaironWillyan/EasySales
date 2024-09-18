@@ -16,34 +16,22 @@ public class Fornecedor {
 
    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
     
     @Column(name = "nome", nullable = false)
     private String nome;
     
-    @Column(name = "bairro", nullable = false)
-    private String bairro;
-    
-    @Column(name = "num", nullable = false)
-    private String num;
-    
-    @Column(name = "logradouro", nullable = false)
-    private String logradouro;
-    
-    @Column(name = "cep", nullable = false)
-    private String cep;
-    
-    @Column(name = "cidade", nullable = false)
-    private String cidade;
-    
     @Column(name = "telefone", nullable = false)
     private String telefone;
     
-    @Column(name = "cpf", nullable = false)
-    private String cpf;
+    @Column(name = "cpf_cnpj", nullable = false)
+    private String cpf_cnpj;
     
     @Column(name = "email", nullable = false)
     private String email;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    private Endereco endereco;
 
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     @OneToMany(mappedBy = "fornecedor")

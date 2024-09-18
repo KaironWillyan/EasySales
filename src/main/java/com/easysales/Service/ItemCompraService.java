@@ -18,7 +18,7 @@ public class ItemCompraService {
         return itemCompraRepository.findAll();
     }
 
-    public ItemCompra getItemCompraById(Integer compraId, Integer estoqueId) {
+    public ItemCompra getItemCompraById(Long compraId, Long estoqueId) {
         ItemCompraId id = new ItemCompraId(compraId, estoqueId);
         return itemCompraRepository.findById(id).orElse(null);
     }
@@ -27,7 +27,7 @@ public class ItemCompraService {
         return itemCompraRepository.save(itemCompra);
     }
 
-    public ItemCompra updateItemCompra(Integer compraId, Integer estoqueId, ItemCompra itemCompra) {
+    public ItemCompra updateItemCompra(Long compraId, Long estoqueId, ItemCompra itemCompra) {
         ItemCompraId id = new ItemCompraId(compraId, estoqueId);
         if (itemCompraRepository.existsById(id)) {
             itemCompra.setId(id);
@@ -36,7 +36,7 @@ public class ItemCompraService {
         return null;
     }
 
-    public void deleteItemCompra(Integer compraId, Integer estoqueId) {
+    public void deleteItemCompra(Long compraId, Long estoqueId) {
         ItemCompraId id = new ItemCompraId(compraId, estoqueId);
         itemCompraRepository.deleteById(id);
     }

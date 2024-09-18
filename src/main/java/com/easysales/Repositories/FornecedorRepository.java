@@ -7,5 +7,5 @@ import org.springframework.stereotype.Repository;
 import java.util.UUID;
 
 @Repository
-public interface FornecedorRepository extends JpaRepository<Fornecedor, Integer> {
+public interface FornecedorRepository extends JpaRepository<Fornecedor, Long> {
 }

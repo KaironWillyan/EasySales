@@ -2,7 +2,7 @@ FROM maven:latest as build
 
 WORKDIR /app
 
-COPY . /app
+COPY .. /app
 
 RUN mvn package
 

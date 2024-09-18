@@ -15,34 +15,22 @@ import java.lang.Integer;
 public class Cliente {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
 
     @Column(nullable = false)
     private String nome;
 
     @Column(nullable = false, unique = true)
-    private String cpf;
-
-    @Column(nullable = false)
-    private String bairro;
-
-    @Column(nullable = false)
-    private String num;
-
-    @Column(nullable = false)
-    private String logradouro;
-
-    @Column(nullable = false)
-    private String cep;
-
-    @Column(nullable = false)
-    private String cidade;
+    private String cpf_cnpj;
 
     @Column(name = "email", nullable = false)
     private String email;
     
     @Column(name = "telefone", nullable = false)
     private String telefone;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    private Endereco endereco;
 
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     @OneToMany(mappedBy = "cliente")

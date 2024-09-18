@@ -17,7 +17,7 @@ public class VendaService {
         return vendaRepository.findAll();
     }
 
-    public Venda getVendaById(Integer id) {
+    public Venda getVendaById(Long id) {
         return vendaRepository.findById(id).orElse(null);
     }
 
@@ -25,7 +25,7 @@ public class VendaService {
         return vendaRepository.save(venda);
     }
 
-    public Venda updateVenda(Integer id, Venda venda) {
+    public Venda updateVenda(Long id, Venda venda) {
         if (vendaRepository.existsById(id)) {
             venda.setId(id);
             return vendaRepository.save(venda);
@@ -33,7 +33,7 @@ public class VendaService {
         return null;
     }
 
-    public void deleteVenda(Integer id) {
+    public void deleteVenda(Long id) {
         vendaRepository.deleteById(id);
     }
 }

@@ -23,7 +23,7 @@ public class VendaController {
     }
     
     @RequestMapping(value = "/venda/{id}", method = RequestMethod.GET)
-    public ResponseEntity<Venda> GetVendaById(@PathVariable  Integer id){
+    public ResponseEntity<Venda> GetVendaById(@PathVariable  Long id){
         Venda venda = vendaService.getVendaById(id);
         if(venda != null){
             return new ResponseEntity<Venda>(venda, HttpStatus.OK);
@@ -39,7 +39,7 @@ public class VendaController {
     }
 
     @PutMapping("/venda/{id}")
-    public ResponseEntity<Venda> PutVenda(@PathVariable Integer id, @Validated @RequestBody Venda newVenda)
+    public ResponseEntity<Venda> PutVenda(@PathVariable Long id, @Validated @RequestBody Venda newVenda)
     {
         Venda updatedVenda = vendaService.updateVenda(id, newVenda);
         if(updatedVenda != null){
@@ -51,7 +51,7 @@ public class VendaController {
     }
 
     @DeleteMapping("/venda/{id}")
-    public ResponseEntity<Venda> DeleteVenda(@PathVariable  Integer id){
+    public ResponseEntity<Venda> DeleteVenda(@PathVariable  Long id){
         vendaService.deleteVenda((id));
        
         throw new ResponseStatusException(

@@ -12,15 +12,15 @@ import lombok.NoArgsConstructor;
 
 @Embeddable @Data @AllArgsConstructor @NoArgsConstructor @Builder
 public class ItemCompraId implements Serializable {
-    private int compraId;
-    private int estoqueId;
+    private Long compraId;
+    private Long estoqueId;
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         ItemCompraId that = (ItemCompraId) o;
-        return compraId == that.compraId && estoqueId == that.estoqueId;
+        return Objects.equals(compraId, that.compraId) && Objects.equals(estoqueId, that.estoqueId);
     }
 
     @Override

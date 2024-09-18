@@ -28,7 +28,7 @@ import lombok.NoArgsConstructor;
 public class Venda {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
 
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     @OneToMany(mappedBy = "venda")

@@ -1,16 +1,30 @@
 spring:
   datasource:
-    url: jdbc:postgresql://dpg-cn2nkeq1hbls73bad4eg-a/easysales
-    #url:jdbc:postgres://easysales_db:Kshp1UelWPReZsELRoWTCS9594RAAE4H@dpg-cn2nkeq1hbls73bad4eg-a.oregon-postgres.render.com/easysales:
-    username: easysales_db
-    password: Kshp1UelWPReZsELRoWTCS9594RAAE4H
+    url: jdbc:postgresql://aws-0-sa-east-1.pooler.supabase.com:6543/postgres
+    username: postgres.zjxajxocndzewnepdfhv
+    password: '#Vmkd98GHpDwt@9'
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: create
       jdbc.lob.non_contextual_creation: true
+      temp:
+        use_jdbc_metadata_defaults: false
     generate-ddl: true
     properties:
       hibernate:
+        dialetic: org.hibernate.dialect.PostgreSQLDialect
         format_sql: true
       database: postgresql
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: ${keycloak.auth-server-url}/realms/${keycloak.realm}
+keycloak:
+  auth-server-url: http://localhost:8090
+  realm: EasySales
+  token:
+    converter:
+      principal-attribute: preferred_username
+      resource-id: easy-sales

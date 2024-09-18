@@ -16,7 +16,7 @@ import java.lang.Integer;
 public class Compra {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
 
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     @OneToMany(mappedBy = "compra")
@@ -28,8 +28,8 @@ public class Compra {
 
     @Column(nullable = false)
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm")
-    private Timestamp dt;
+    private Timestamp dt_compra;
 
     @Column(nullable = false)
-    private Float valorTotal;
+    private Double valorTotal;
 }

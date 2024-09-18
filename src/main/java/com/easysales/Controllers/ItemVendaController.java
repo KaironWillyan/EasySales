@@ -16,15 +16,13 @@ public class ItemVendaController {
     @Autowired
     private ItemVendaService itemVendaService;
 
-
-
     @GetMapping("/itemVenda")
     public List<ItemVenda> getItemVenda(){
         return itemVendaService.getAllItensVenda();
     }
 
     @GetMapping("/itemVenda/{vendaId}/{estoqueId}")
-    public ResponseEntity<ItemVenda> GetItemVendaById(@PathVariable Integer vendaId, @PathVariable Integer estoqueId){
+    public ResponseEntity<ItemVenda> GetItemVendaById(@PathVariable Long vendaId, @PathVariable Long estoqueId){
         ItemVenda itemVenda = itemVendaService.getItemVendaById(vendaId, estoqueId);
         if(itemVenda != null){
             return new ResponseEntity<ItemVenda>(itemVenda, HttpStatus.OK);
@@ -39,7 +37,7 @@ public class ItemVendaController {
     }
 
     @PutMapping("/itemVenda/{vendaId}/{estoqueId}")
-    public ResponseEntity<ItemVenda> PutItemVenda(@PathVariable Integer vendaId, @PathVariable Integer estoqueId, @Validated @RequestBody ItemVenda newItemVenda)
+    public ResponseEntity<ItemVenda> PutItemVenda(@PathVariable Long vendaId, @PathVariable Long estoqueId, @Validated @RequestBody ItemVenda newItemVenda)
     {
         ItemVenda updatedItemVenda = itemVendaService.updateItemVenda(vendaId, estoqueId, newItemVenda);
         if(updatedItemVenda != null){
@@ -51,7 +49,7 @@ public class ItemVendaController {
     }
 
     @DeleteMapping("/itemVenda//{vendaId}/{estoqueId}")
-    public ResponseEntity<ItemVenda> DeleteItemVenda(@PathVariable Integer vendaId, @PathVariable Integer estoqueId){
+    public ResponseEntity<ItemVenda> DeleteItemVenda(@PathVariable Long vendaId, @PathVariable Long estoqueId){
        itemVendaService.deleteItemVenda(vendaId, estoqueId);
         throw new ResponseStatusException(
                 HttpStatus.NOT_FOUND, "itemVenda não encontrado."

@@ -18,7 +18,7 @@ public class ItemVendaService {
         return itemVendaRepository.findAll();
     }
 
-    public ItemVenda getItemVendaById(Integer vendaId, Integer estoqueId) {
+    public ItemVenda getItemVendaById(Long vendaId, Long estoqueId) {
         ItemVendaId id = new ItemVendaId(vendaId, estoqueId);
         return itemVendaRepository.findById(id).orElse(null);
     }
@@ -27,7 +27,7 @@ public class ItemVendaService {
         return itemVendaRepository.save(itemVenda);
     }
 
-    public ItemVenda updateItemVenda(Integer vendaId, Integer estoqueId, ItemVenda itemVenda) {
+    public ItemVenda updateItemVenda(Long vendaId, Long estoqueId, ItemVenda itemVenda) {
         ItemVendaId id = new ItemVendaId(vendaId, estoqueId);
         if (itemVendaRepository.existsById(id)) {
             itemVenda.setId(id);
@@ -36,7 +36,7 @@ public class ItemVendaService {
         return null;
     }
 
-    public void deleteItemVenda(Integer vendaId, Integer estoqueId) {
+    public void deleteItemVenda(Long vendaId, Long estoqueId) {
         ItemVendaId id = new ItemVendaId(vendaId, estoqueId);
         itemVendaRepository.deleteById(id);
     }

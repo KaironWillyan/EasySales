@@ -38,8 +38,8 @@ public class ItemVenda {
     private Estoque estoque;
     
     @Column(name = "qtdVendida", nullable = false)
-    private int qtdVendida;
+    private Long qtdVendida;
     
     @Column(name = "valorTotalItemV", nullable = false)
-    private float valorTotalItemV;
+    private Double valorTotalItemV;
 }

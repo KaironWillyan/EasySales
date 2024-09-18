@@ -15,17 +15,20 @@ import java.lang.Integer;
 public class Empresa    {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
     
     @Column(name = "nome", nullable = false)
     private String nome;
 
-    @Column(name = "cpf_cnpj", nullable = false)
+    @Column(name = "cpf_cnpj", unique = true)
     private  String cnpj;
 
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     @OneToMany(mappedBy = "empresa")
     private List<Estoque> estoques;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    private Endereco endereco;
 
     @ManyToOne
     @JoinColumn(name = "usuarioId", referencedColumnName = "id", nullable = false)

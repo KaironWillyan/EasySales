@@ -26,7 +26,7 @@ public class EstoqueController {
     }
 
     @GetMapping("/estoque/{id}")
-    public ResponseEntity<Estoque> GetEstoqueById(@PathVariable(value = "idEstoque") Integer id){
+    public ResponseEntity<Estoque> GetEstoqueById(@PathVariable(value = "idEstoque") Long id){
         Estoque estoque = estoqueService.getEstoqueById(id);
         if(estoque != null){
             return new ResponseEntity<Estoque>(estoque, HttpStatus.OK);
@@ -41,7 +41,7 @@ public class EstoqueController {
     }
 
     @PutMapping("/estoque/{id}")
-    public ResponseEntity<Estoque> PutEstoque(@PathVariable(value = "idEstoque") Integer id, @Validated @RequestBody Estoque newEstoque)
+    public ResponseEntity<Estoque> PutEstoque(@PathVariable(value = "idEstoque") Long id, @Validated @RequestBody Estoque newEstoque)
     {
         Estoque updatedEstoque = estoqueService.updateEstoque(id, newEstoque);
         if(updatedEstoque != null){
@@ -54,7 +54,7 @@ public class EstoqueController {
     }
 
     @DeleteMapping("/estoque/{id}")
-    public ResponseEntity<Estoque> DeleteEstoque(@PathVariable(value = "idEstoque") Integer id){
+    public ResponseEntity<Estoque> DeleteEstoque(@PathVariable(value = "idEstoque") Long id){
         estoqueService.deleteEstoque(id);
 
         throw new ResponseStatusException(

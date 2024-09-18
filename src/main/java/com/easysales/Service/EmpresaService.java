@@ -21,7 +21,7 @@ public class EmpresaService {
         return empresaRepository.findAll();
     }
 
-    public Empresa getEmpresaById(Integer id) {
+    public Empresa getEmpresaById(Long id) {
         return empresaRepository.findById(id).orElse(null);
     }
 
@@ -33,7 +33,7 @@ public class EmpresaService {
         return empresa;
     }
 
-    public Empresa updateEmpresa(Integer id, Empresa empresa) {
+    public Empresa updateEmpresa(Long id, Empresa empresa) {
         if (empresaRepository.existsById(id)) {
             empresa.setId(id);
             return empresaRepository.save(empresa);
@@ -41,7 +41,7 @@ public class EmpresaService {
         return null;
     }
 
-    public void deleteEmpresa(Integer id) {
+    public void deleteEmpresa(Long id) {
         empresaRepository.deleteById(id);
     }
 }

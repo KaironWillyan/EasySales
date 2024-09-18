@@ -14,34 +14,25 @@ import java.util.List;
 public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
 
-    @Column(name = "nomeEmp", nullable = false)
+    @Column(name = "nome", nullable = false)
     private String nome;
 
-    @Column(name = "emailEmp", nullable = false, unique = true)
+    @Column(name = "email", nullable = false, unique = true)
     private String email;
 
-    @Column(name = "senhaEmp", nullable = false)
+    @Column(name = "senha", nullable = false)
     private String senha;
 
     @Column(nullable = false, unique = true)
     private String cpf;
 
-    @Column(nullable = false)
-    private String bairro;
+    @Column(nullable = false, unique = true)
+    private String telefone;
 
-    @Column(nullable = false)
-    private String num;
-
-    @Column(nullable = false)
-    private String logradouro;
-
-    @Column(nullable = false)
-    private String cep;
-
-    @Column(nullable = false)
-    private String cidade;
+    @OneToOne(cascade = CascadeType.ALL)
+    private Endereco endereco;
 
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     @OneToMany(mappedBy = "usuario")

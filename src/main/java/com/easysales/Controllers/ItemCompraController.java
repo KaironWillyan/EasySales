@@ -23,8 +23,8 @@ public class ItemCompraController {
     }
 
     @GetMapping("/itemCompra//{compraId}/{estoqueId}")
-    public ResponseEntity<ItemCompra> GetItemCompraById(@PathVariable("compraId") int compraId,
-            @PathVariable("estoqueId") int estoqueId){
+    public ResponseEntity<ItemCompra> GetItemCompraById(@PathVariable("compraId") Long compraId,
+            @PathVariable("estoqueId") Long estoqueId){
         ItemCompra itemCompra = itemCompraService.getItemCompraById(compraId, estoqueId);
         if (itemCompra != null) {
             return new ResponseEntity<>(itemCompra, HttpStatus.OK);
@@ -39,7 +39,7 @@ public class ItemCompraController {
     }
 
     @PutMapping("/itemCompra/{id}")
-    public ResponseEntity<ItemCompra> PutItemCompra(@PathVariable Integer idCompra, @PathVariable Integer idEstoque, @Validated @RequestBody ItemCompra newItemCompra)
+    public ResponseEntity<ItemCompra> PutItemCompra(@PathVariable Long idCompra, @PathVariable Long idEstoque, @Validated @RequestBody ItemCompra newItemCompra)
     {
         ItemCompra updatedItemCompra = itemCompraService.updateItemCompra(idCompra, idEstoque, newItemCompra);
 
@@ -53,7 +53,7 @@ public class ItemCompraController {
     }
 
     @DeleteMapping("/itemCompra//{vendaId}/{estoqueId}")
-    public ResponseEntity<ItemCompra> DeleteItemCompra(@PathVariable Integer idVenda, @PathVariable Integer idEstoque){
+    public ResponseEntity<ItemCompra> DeleteItemCompra(@PathVariable Long idVenda, @PathVariable Long idEstoque){
         itemCompraService.deleteItemCompra(idVenda, idEstoque);
         throw new ResponseStatusException(
                 HttpStatus.NOT_FOUND, "itemCompra não encontrado."

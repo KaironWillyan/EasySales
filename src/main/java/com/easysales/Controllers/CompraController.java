@@ -24,7 +24,7 @@ public class CompraController {
     }
 
     @GetMapping("/compra/{id}")
-    public ResponseEntity<Compra> GetCompraById(@PathVariable(value = "idCompra") Integer id){
+    public ResponseEntity<Compra> GetCompraById(@PathVariable(value = "idCompra") Long id){
         Compra compra = compraService.getCompraById(id);
         if(compra != null){
             return new ResponseEntity<Compra>(compra, HttpStatus.OK);
@@ -40,7 +40,7 @@ public class CompraController {
     }
 
     @PutMapping("/compra/{id}")
-    public ResponseEntity<Compra> PutCompra(@PathVariable(value = "idCompra") Integer id, @Validated @RequestBody Compra newCompra)
+    public ResponseEntity<Compra> PutCompra(@PathVariable(value = "idCompra") Long id, @Validated @RequestBody Compra newCompra)
     {
         Compra updatedCompra = compraService.updateCompra(id, newCompra);
         if(updatedCompra != null){
@@ -53,7 +53,7 @@ public class CompraController {
     }
 
     @DeleteMapping("/compra/{id}")
-    public ResponseEntity<Compra> DeleteCompra(@PathVariable(value = "idCompra") Integer id){
+    public ResponseEntity<Compra> DeleteCompra(@PathVariable(value = "idCompra") Long id){
 
         compraService.deleteCompra(id);
         
